@@ -128,7 +128,7 @@
                                                     @endforeach
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12"> <div class="shipping-aadress">
+                                            <!-- <div class="col-sm-12"> <div class="shipping-aadress">
                                                                 <h5 class="mb-3">Shipping Address:</h5>
                                                                 @if ($shipping_addr)
                                                                     <p class="mb-1"><b class="text-dark">Name:</b>
@@ -154,7 +154,7 @@
                                                                         Address</button>
                                                                 @endif
 
-                                                            </div></div>
+                                                            </div></div> -->
                                             {{-- <div class="card rounded-0 shadow-none mb-3 border">
                                             <div class="card-body">
                                                 <div class="row">

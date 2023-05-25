@@ -14,7 +14,6 @@
                         style="height: 100%;">
                         <div class="row row-cols-1">
                             <div class="col-12 ">
-                                
                                 <div class="card register_page">
                                     <div class="card-body d-flex">
                                         <div class=" p-4 rounded">
@@ -85,12 +84,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="w-100 register_design" height="100%">
+                                    <!-- <div class="w-100 register_design" height="100%">
                                         <div class="text-center mt-5">
                                             <h3 class="text-white">Looks like you're new here!</h3>
                                             <p>Sign up with your mobile number to get started</p>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
