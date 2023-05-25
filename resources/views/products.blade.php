@@ -41,7 +41,7 @@
                                 <div class="filter-sidebar d-none d-xl-flex">
                                     <div class="card rounded-0 w-100">
                                         <div class="card-header pb-0">
-                                            <h6>Filter Products</h6>
+                                            <h6>Checkout Categories</h6>
                                         </div>
                                         <div class="card-body">
                                             <div class="align-items-center d-flex d-xl-none">
@@ -50,7 +50,7 @@
                                             </div>
                                             <hr class="d-flex d-xl-none" />
                                             <div class="product-categories">
-                                                <h6 class="text-uppercase mb-3">Categories</h6>
+                                                <!-- <h6 class="text-uppercase mb-3">Categories</h6> -->
                                                 <ul class="list-unstyled mb-0 categories-list">
 												@forelse ($pro_categories as $category)
                                                     <li>
@@ -63,9 +63,54 @@
                                                     @endforelse
                                                 </ul>                                                
                                             </div>
-                                            <hr />
-                                            <div class="product-brands">
+                                            <!-- <div class="product-brands">
                                                 <h6 class="text-uppercase mb-3">Brands</h6>
+                                                <ul class="list-unstyled mb-0 categories-list">
+												@forelse ($pro_brands as $brand)
+                                                    <li>
+                                                        <a class="text-black" href="{{url('products/brand').'/'.$brand->brand_slug}}">{{$brand->brand}}</a>
+                                                        {{-- <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{$brand->brand_slug}}" id="Adidas" />
+                                                            <label class="form-check-label" for="Adidas">{{$brand->brand}}</label>
+                                                        </div> --}}
+                                                    </li>
+                                                    @empty
+                                                        
+                                                    @endforelse
+														
+                                                    
+                                                    
+                                                </ul>                                                
+                                            </div>
+                                            {{-- <hr /> --}}
+                                            {{-- <div class="price-range">
+                                                <h6 class="text-uppercase mb-3">Price</h6>
+                                                <div class="my-4" id="slider">
+                                                    <input type="range" class="w-100" max="50000" step="100"
+                                                        id="price_filter">
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <button type="button"
+                                                        class="btn btn-dark btn-sm text-uppercase rounded-0 font-13 fw-500">
+                                                        Filter
+                                                    </button>
+                                                    <div class="ms-auto">
+                                                        <p class="mb-0">Price: 200.00 - <span
+                                                                id="heighest_price"></span>.00</p>
+                                                    </div>
+                                                </div>
+                                            </div> --}} -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="filter-sidebar d-none d-xl-flex mt-3">
+                                    <div class="card rounded-0 w-100">
+                                        <div class="card-header pb-0">
+                                            <h6>Checkout Brands</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="product-brands">
+                                                <!-- <h6 class="text-uppercase mb-3">Brands</h6> -->
                                                 <ul class="list-unstyled mb-0 categories-list">
 												@forelse ($pro_brands as $brand)
                                                     <li>

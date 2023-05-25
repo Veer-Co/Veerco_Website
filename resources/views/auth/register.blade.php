@@ -9,9 +9,9 @@
 
             <!--start shop cart-->
             <section class="">
-                <div class="container" style="padding: 20px 0px;">
+                <div class="container" style="padding: 60px 0px;">
                     <div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0"
-                        style="height: 100%;">
+                        style="height: 100%; width: 60%; margin-left:auto; margin-right:auto;">
                         <div class="row row-cols-1">
                             <div class="col-12 ">
                                 <div class="card register_page">
