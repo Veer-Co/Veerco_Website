@@ -403,14 +403,16 @@
                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4">
                             <div class="col d-flex">
                                 <div class="card rounded-0 w-100 border shadow-none">
-                                    <img src="{{asset('assets/images/pronix-lift-table-02_2.png')}}" class="card-img-top" alt="...">
+                                    <a href="/products/brand/pronix"><img src="{{asset('assets/images/pronix-lift-table-02_2.png')}}" class="card-img-top" alt="..."></a>
                                     <div class="position-absolute top-0 end-0 m-3 product-discount"><span
                                             class="">-10%</span>
                                     </div>
                                     <div class="card-body">
-                                        <h5 class="card-title">Pronix Hydraulic Scissor</h5>
-                                        <p class="card-text">See all Pronix Hydraulic Scissor Lift Table and get 10% off at all Pronix Hydraulic Scissor</p> <a
-                                            href="javascript:;" class="btn btn-veerco btn-ecomm">SHOP BY PRONIX</a>
+                                        <a href="/products/brand/pronix">
+                                            <h5 class="card-title">Pronix Hydraulic Scissor</h5>
+                                            <p class="card-text">See all Pronix Hydraulic Scissor Lift Table and get 10% off at all Pronix Hydraulic Scissor</p> <a
+                                                href="/products/brand/pronix" class="btn btn-veerco btn-ecomm">SHOP BY PRONIX</a>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -420,23 +422,27 @@
                                             class="">-80%</span>
                                     </div>
                                     <div class="card-body text-center mt-5">
-                                        <h5 class="card-title">Stanley Hydraulic Scissor</h5>
-                                        <p class="card-text">Buy Stanley Hydraulic Scissor Lift Table and get 30% off at all Stanley Hydraulic Scissor Lift Table</p> <a
-                                            href="javascript:;" class="btn btn-veerco btn-ecomm">SHOP BY STANLEY</a>
+                                        <a href="/products/brand/stanley">
+                                            <h5 class="card-title">Stanley Hydraulic Scissor</h5>
+                                            <p class="card-text">Buy Stanley Hydraulic Scissor Lift Table and get 30% off at all Stanley Hydraulic Scissor Lift Table</p> <a
+                                                href="/products/brand/stanley" class="btn btn-veerco btn-ecomm">SHOP BY STANLEY</a>
+                                        </a>
                                     </div>
-                                    <img src="{{asset('assets/images/products/stanley-x150-01.jpg')}}" class="card-img-top" alt="...">
+                                    <a href="/products/brand/stanley"><img src="{{asset('assets/images/products/stanley-x150-01.jpg')}}" class="card-img-top" alt="..."></a>
                                 </div>
                             </div>
                             <div class="col d-flex">
                                 <div class="card rounded-0 w-100 border shadow-none">
-                                    <img src="{{asset('assets/images/pronix-lift-table-02_2.png')}}" class="card-img h-100" alt="...">
+                                    <a href="/brands"><img src="{{asset('assets/images/pronix-lift-table-02_2.png')}}" class="card-img h-100" alt="..."></a>
                                     <div class="card-img-overlay text-center top-20">
                                         <div class="border border-white border-3 py-3 bg-dark-3">
-                                            <h5 class="card-title text-white">Super Sale</h5>
-                                            <p class="card-text text-uppercase fs-1 lh-1 mt-3 mb-2 text-white">Up to 80%
-                                                off</p>
-                                            <p class="card-text fs-5 text-white">On top Brands</p> <a
-                                                href="javascript:;" class="btn btn-white btn-ecomm">SHOP BY BRAND</a>
+                                            <a href="/brands">
+                                                <h5 class="card-title text-white">Super Sale</h5>
+                                                <p class="card-text text-uppercase fs-1 lh-1 mt-3 mb-2 text-white">Up to 80%
+                                                    off</p>
+                                                <p class="card-text fs-5 text-white">On top Brands</p> <a
+                                                    href="/brands" class="btn btn-white btn-ecomm">SHOP BY BRAND</a>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -447,11 +453,13 @@
                                             class="">-50%</span>
                                     </div>
                                     <div class="card-body text-center">
-                                        <img src="{{asset('assets/images/products/stanley-x150-01.jpg')}}" class="card-img-top" alt="...">
-                                        <h5 class="card-title fs-1 text-uppercase">Super Sale</h5>
-                                        <p class="card-text text-uppercase fs-4 lh-1 mb-2">Up to 50% off</p>
-                                        <p class="card-text">On All MANUFACTURING & FABRICATION</p> <a href="javascript:;"
-                                            class="btn btn-veerco btn-ecomm">HURRY UP!</a>
+                                        <a href="/brands">
+                                            <img src="{{asset('assets/images/products/stanley-x150-01.jpg')}}" class="card-img-top" alt="...">
+                                            <h5 class="card-title fs-1 text-uppercase">Super Sale</h5>
+                                            <p class="card-text text-uppercase fs-4 lh-1 mb-2">Up to 50% off</p>
+                                            <p class="card-text">On All MANUFACTURING & FABRICATION</p> <a href="/brands"
+                                                class="btn btn-veerco btn-ecomm">HURRY UP!</a>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
