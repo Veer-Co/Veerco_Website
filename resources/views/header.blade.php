@@ -47,7 +47,7 @@
             <nav class="navbar navbar-expand p-0">
                 <div class="shiping-title font-13 d-none d-sm-flex">
                     <a href="#" class="fast_query fs-6">
-                        👋 Hi, <b>User!</b>
+                        👋 Hi, <b> {{ Auth::user()?Auth::user()->first_name:"User" }}!</b>
                     </a>
                 </div>
                 <ul class="navbar-nav ms-auto d-none d-lg-flex">
@@ -96,7 +96,7 @@
                         <div class="fs-1 text-red"><i class='bx bx-user-circle text-dark'></i>
                         </div>
                         <div class="ms-2">
-                            <p class="mb-0 font-13 text-dark"><strong>Hello! {{ Auth::user()->first_name }}</strong></p>
+                            <!-- <p class="mb-0 font-13 text-dark"><strong>Hello! {{ Auth::user()->first_name }}</strong></p> -->
                             <h5 class="mb-0">My Account</h5>
                         </div>
                     </a>
@@ -196,7 +196,7 @@
                                 </li>
                                 <li><a class="dropdown-item" href="{{ url('user/payment-method') }}">Payment Methods</a>
                                 </li>
-                                <li><a class="dropdown-item" href="{{ url('user/user-details') }}">User Details</a>
+                                <li><a class="dropdown-item" href="{{ url('user/user-details') }}">Account Details</a>
                                 </li>
                             </ul>
                         </li>

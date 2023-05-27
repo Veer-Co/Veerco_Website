@@ -56,44 +56,44 @@
                                                 <form class="row g-3" action="{{route('user.addAddress')}}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="col-md-6">
-                                                        <label class="form-label">Enter First Name</label>
-                                                        <input type="text" class="form-control" placeholder="Enter First Name*" name="fname" required />
+                                                        <label class="form-label">Enter First Name*</label>
+                                                        <input type="text" class="form-control" placeholder="Enter First Name" name="fname" required />
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label class="form-label">Enter Last Name</label>
-                                                        <input type="text" class="form-control" placeholder="Enter Last Name*" name="lname" required />
+                                                        <label class="form-label">Enter Last Name*</label>
+                                                        <input type="text" class="form-control" placeholder="Enter Last Name" name="lname" required />
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label class="form-label">Enter E-mail Id</label>
-                                                        <input type="email" class="form-control" placeholder="Enter E-mail ID*" name="email" required />
+                                                        <label class="form-label">Enter E-mail Id*</label>
+                                                        <input type="email" class="form-control" placeholder="Enter E-mail ID" name="email" required />
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label class="form-label">Enter Mobile Number</label>
-                                                        <input type="tel" class="form-control" placeholder="Enter Mobile Number*" name="mobile" required />
+                                                        <label class="form-label">Enter Mobile Number*</label>
+                                                        <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="mobile" required />
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label class="form-label">Street/Location Name</label>
-                                                        <input type="text" class="form-control" placeholder="Street/Location Name*" name="locationName" required />
+                                                        <label class="form-label">Street/Location Name*</label>
+                                                        <input type="text" class="form-control" placeholder="Street/Location Name" name="locationName" required />
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label class="form-label">Town/Village Name</label>
-                                                        <input type="text" class="form-control" placeholder="Town/Village Name*" name="townName" required />
+                                                        <label class="form-label">Town/Village Name*</label>
+                                                        <input type="text" class="form-control" placeholder="Town/Village Name" name="townName" required />
                                                     </div>
                                                     <div class="col-6">
-                                                        <label class="form-label">City</label>
-                                                        <input type="text" class="form-control" placeholder="City*" name="city" required />
+                                                        <label class="form-label">City*</label>
+                                                        <input type="text" class="form-control" placeholder="City" name="city" required />
                                                     </div>
                                                     <div class="col-6">
-                                                        <label class="form-label">State</label>
-                                                        <input type="text" class="form-control" placeholder="State*" name="state" required />
+                                                        <label class="form-label">State*</label>
+                                                        <input type="text" class="form-control" placeholder="State" name="state" required />
                                                     </div>
                                                     <div class="col-6">
-                                                        <label class="form-label">Country</label>
-                                                        <input type="text" class="form-control" placeholder="Country*" name="country" required />
+                                                        <label class="form-label">Country*</label>
+                                                        <input type="text" class="form-control" placeholder="Country" name="country" required />
                                                     </div>
                                                     <div class="col-6">
-                                                        <label class="form-label">Pin Code</label>
-                                                        <input type="text" class="form-control" placeholder="Pin Code*" name="pinCode" required />
+                                                        <label class="form-label">Pin Code*</label>
+                                                        <input type="text" class="form-control" placeholder="Pin Code" name="pinCode" required />
                                                     </div>
                                                     <div class="col-12">
                                                         <button type="submit" class="btn btn-dark btn-ecomm">Submit</button>

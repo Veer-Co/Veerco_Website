@@ -78,7 +78,7 @@
                     <div class="footer-section4 mb-3">
                         <h6 class="mb-3 text-uppercase">Stay informed</h6>
                         <div class="subscribe">
-                            <input type="text" class="form-control radius-30" placeholder="Enter Your Email" />
+                            <input type="text" class="form-control radius-7" placeholder="Enter Your Email" />
                             <div class="mt-2 d-grid">	<a href="javascript:;" class="btn btn-veerco btn-ecomm radius-30">Subscribe</a>
                             </div>
                             <p class="mt-2 mb-0 font-13">Subscribe to our newsletter to receive early discount offers, updates and new products info.</p>

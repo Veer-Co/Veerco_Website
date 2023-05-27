@@ -536,17 +536,23 @@
                                         <div class="item">
                                             <div class="product-box">
                                                 @if ($alsolike->mrp)
+                                                <a href="{{ url('products-details') . '/' . $alsolike->product_slug }}">
                                                     <div class="beachs">
                                                         {{ ceil((($alsolike->mrp - $alsolike->price) / $alsolike->mrp) * 100) }}%
-                                                        Off</div> <img
-                                                        src="{{ asset('uploads/products/') . '/' . $alsolike->thumbnail }}"
-                                                        alt="{{ $alsolike->product_name ?? 'Veerco' }}">
+                                                        Off
+                                                    </div> 
+                                                    <img
+                                                    src="{{ asset('uploads/products/') . '/' . $alsolike->thumbnail }}"
+                                                    alt="{{ $alsolike->product_name ?? 'Veerco' }}">
+                                                </a>
                                                 @endif
-                                                <div class="discrptions">
-                                                    <h5>{{ Str::limit($alsolike->product_name, 40) }}</h5>
-                                                    <h6>&#8377;{{ number_format((float) $alsolike->price, 2, '.', '') }}
-                                                    </h6>
-                                                </div>
+                                                <a href="{{ url('products-details') . '/' . $alsolike->product_slug }}">
+                                                    <div class="discrptions">
+                                                        <h5>{{ Str::limit($alsolike->product_name, 40) }}</h5>
+                                                        <h6>&#8377;{{ number_format((float) $alsolike->price, 2, '.', '') }}
+                                                        </h6>
+                                                    </div>
+                                                </a>
                                                 <div class="discrptions_button">
                                                     <h5><a
                                                             href="{{ url('products-details') . '/' . $alsolike->product_slug }}">View

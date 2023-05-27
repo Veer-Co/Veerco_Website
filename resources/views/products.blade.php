@@ -192,8 +192,9 @@
                                     </div> --}}
                                     <div class="product-grid">
                                         <div id="load_product_data" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-                                             @if(true)
-											  
+                                             @if($get_products->count() == 0)
+                                                <div class="mx-auto">No Products Available</div>
+                                             @endif
 											 @foreach ($get_products as $item)
                                             <div class="col-md-3 pb-2 pe-0">
                                                 <div class="card rounded-0 product-card">
@@ -248,10 +249,7 @@
                                                     </div>
                                                 </div>
                                             </div>                                                
-                                            @endforeach
-											 
-                                             
-											 @endif
+                                            @endforeach 
                                         </div>
                                         <!--end row-->
                                     </div>
