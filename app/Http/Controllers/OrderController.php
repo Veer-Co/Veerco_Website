@@ -34,11 +34,11 @@ class OrderController extends Controller
             'shipping_date' => now(),
             'status' => 1,
         ]);
-        
+
         if ($placed) {
             return redirect('admin/new-order')->with(session()->flash('success', 'Order successfully placed.'));
         } else{
-            return redirect()->back()->with(session()->flash('error', 'Something went wrong. Please! try again later.'));
+            return redirect()->back()->with(session()->flash('error', 'Hi, Something went wrong. Please! try again later.'));
         }
     }
 
@@ -65,7 +65,7 @@ class OrderController extends Controller
         if ($delivered) {
             return redirect('admin/shipped-order')->with(session()->flash('success', 'Order successfully delivered'));
         } else {
-            return redirect('admin/shipped-order')->with(session()->flash('error', 'Something went wrong. Please! try again later.'));
+            return redirect('admin/shipped-order')->with(session()->flash('error', 'Hi, Something went wrong. Please! try again later.'));
         }
     }
 
