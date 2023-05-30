@@ -9,36 +9,36 @@
             <div class="fluid-container px-2">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-lg-3 category_set_after_navbar">
-                            <div class="card">
-                                <div class="card-header bg-info pb-0">
-                                    <h6>Explore Product Categories</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="col-lg-12">
-                                        <div class="row">
-                                            @foreach ($categories->take(4) as $category)
-                                            <div class="col-lg-6 mb-1 text-center">
-                                                <a href="{{url('products/category').'/'.$category->category_slug}}" class="text-black">
-                                                    <img src="{{asset('uploads/category').'/'.$category->category_image}}"
-                                                        alt="{{$category->category}}" title="{{$category->category}}" class="category_after_nav">
-                                                    <span class="fw-bold" title="{{$category->category}}">{{ \Illuminate\Support\Str::limit($category->category, 20, $end='...') }}</span>
-                                                </a>
-                                            </div>
-                                            @endforeach
-                                            <div class="col-lg-12">
-                                                <a href="{{url('category')}}" class="float-end">See All</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
+                        <!-- <div class="col-lg-3 category_set_after_navbar"> -->
+                            <!-- <div class="card"> -->
+                            <!--     <div class="card-header bg-info pb-0"> -->
+                            <!--         <h6>Explore Product Categories</h6> -->
+                            <!--     </div> -->
+                            <!--     <div class="card-body"> -->
+                            <!--         <div class="col-lg-12"> -->
+                            <!--             <div class="row"> -->
+                            <!--                 @foreach ($categories->take(4) as $category) -->
+                            <!--                 <div class="col-lg-6 mb-1 text-center"> -->
+                            <!--                     <a href="{{url('products/category').'/'.$category->category_slug}}" class="text-black"> -->
+                            <!--                         <img src="{{asset('uploads/category').'/'.$category->category_image}}" -->
+                            <!--                             alt="{{$category->category}}" title="{{$category->category}}" class="category_after_nav"> -->
+                            <!--                         <span class="fw-bold" title="{{$category->category}}">{{ \Illuminate\Support\Str::limit($category->category, 20, $end='...') }}</span> -->
+                            <!--                     </a> -->
+                            <!--                 </div> -->
+                            <!--                 @endforeach -->
+                            <!--                 <div class="col-lg-12"> -->
+                            <!--                     <a href="{{url('category')}}" class="float-end">See All</a> -->
+                            <!--                 </div> -->
+                            <!--             </div> -->
+                            <!--         </div> -->
+                            <!--     </div> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+                        <div class="col-lg-9 mx-auto w-100">
                             <!--start slider section-->
                             <section class="slider-section">
                                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-indicators">
+                                <div class="carousel-indicators">
                                         <button type="button" data-bs-target="#carouselExampleIndicators"
                                             data-bs-slide-to="0" class="active" aria-current="true"
                                             aria-label="Slide 1"></button>
@@ -69,12 +69,12 @@
                                     </div>
                                     <button class="carousel-control-prev" type="button"
                                         data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color:transparent; border-radius:15px;"></span>
                                         <span class="visually-hidden">Previous</span>
                                     </button>
                                     <button class="carousel-control-next" type="button"
                                         data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="carousel-control-next-icon" aria-hidden="true"  style="background-color:transparent; border-radius:15px;"></span>
                                         <span class="visually-hidden">Next</span>
                                     </button>
                                 </div>
@@ -198,7 +198,7 @@
                             Products<i class='bx bx-chevron-right'></i></a>
                     </div>
                     <div class="product-grid jkdjwks">
-                        <div class="row">                            
+                        <div class="row">
                             @foreach ($toproducts->take(12) as $topproduct)
                                 <div class="col-md-2 pb-2">
                                     <div class="card rounded-0 product-card">
@@ -261,13 +261,13 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach  
+                            @endforeach
                         </div>
                         <!--end row-->
                     </div>
                 </div>
             </section>
-            <!--end Featured product-->                              
+            <!--end Featured product-->
             @endif
             <!--start New Arrivals-->
             <section class="py-4 px-2">
@@ -284,7 +284,7 @@
                                     <div class="card rounded-0 product-card">
                                         <div class="product-label">
                                             <span class="new">{{ceil(($newarr->mrp - $newarr->price)/$newarr->mrp *100)}}% off</span>
-                                        </div>                                       
+                                        </div>
                                         <a href="{{ url('products-details') . '/' . $newarr->product_slug }}">
                                             {{-- @foreach ($newarr->product_images as $newarrproduct) --}}
                                             <img src="{{ asset('uploads/products') . '/' . $newarr->thumbnail }}" class="card-img-top" alt="{{$newarr->product_name}}">
@@ -305,7 +305,7 @@
                                                     <h6 class="product-name mb-2 airtabview" title="{{ $newarr->product_name }}">{{ Str::limit($newarr->product_name, 16) }}</h6>
                                                 </a>
                                                 <div class="d-flex align-items-center">
-                                                    <div class="mb-1 product-price"> 
+                                                    <div class="mb-1 product-price">
                                                         <span class="me-1 text-decoration-line-through">&#8377;{{ number_format((float) $newarr->mrp, 2, '.', '') }}</span>
                                                         <span class="fs-5">&#8377;{{ number_format((float) $newarr->price, 2, '.', '') }}</span>
                                                     </div>
@@ -335,7 +335,7 @@
                 </div>
             </section>
             <!--end New Arrivals-->
-            
+
             @if (false)
                 <!--start categories-->
             <section class="py-4 px-2">
@@ -368,7 +368,7 @@
             </section>
             <!--end categories-->
             @endif
-            
+
 
             <!--start brands-->
             <section class="py-2 px-2">
@@ -383,7 +383,7 @@
                                     @foreach ($brands as $brand)
                                         <div class="item border-end">
                                             <div class="p-4">
-                                                <a href="{{url('products/brands').'/'.$brand->brand_slug}}">
+                                                <a href="{{url('products/brand').'/'.$brand->brand_slug}}">
                                                     <img src="{{ asset('uploads/brand') . '/' . $brand->brand_image }}" class="brand_logos" alt="{{ $brand->brand }}">
                                                 </a>
                                             </div>

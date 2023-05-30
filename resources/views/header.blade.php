@@ -51,7 +51,7 @@
                     </a>
                 </div>
                 <ul class="navbar-nav ms-auto d-none d-lg-flex">
-                    <li class="nav-item"> 
+                    <li class="nav-item">
                         <a class="nav-link text-white" href="#">Customer Support: <b><i class='bx bx-phone-call'></i>&nbsp;9710076550 | <i class="bx bxl-whatsapp"></i>&nbsp;9710076550</b></a>
                     </li>
                 </ul>
@@ -135,7 +135,7 @@
                                                 } else {
                                                     $cartitems = \App\Models\Cart::where('session_id', Illuminate\Support\Facades\Session::getId())->count();
                                                 }
-                                                
+
                                                 ?>
                                                 @if ($cartitems)
                                                     {{ $cartitems }}

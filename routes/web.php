@@ -54,7 +54,7 @@ Route::post('product_rating', [MainController::class, 'productRating'])->name('p
 // })->middleware(['auth'])->name('dashboard');
 Route::view('return/policy', 'return-policy');
 Route::view('shipping/policy', 'shipping-policy');
-    
+
 Route::post('addtocart', [MainController::class, 'addtocart'])->name('addtocart');
 Route::post('adonaddtocart', [MainController::class, 'adonaddtocart'])->name('adonaddtocart');
 Route::get('cart', [MainController::class, 'shoppingCart'])->name('cart');

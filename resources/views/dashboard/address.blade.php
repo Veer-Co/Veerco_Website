@@ -77,11 +77,21 @@
                                                             {{$address->state}},
                                                             {{$address->country}},
                                                             ({{$address->pincode}})
-                                                        </address>
+                                                    </address>
+
+
+                                                    <div class="btn btn-warning" style="padding: 0px; padding-left: 6px; pading-bottom:2px;">
+                                                        <div><i class='bx bx-edit text-dark'></i></div>
+                                                    </div>
+
+                                                    <div class="btn btn-danger" style="padding: 0px; padding-left: 6px; pading-bottom:2px;">
+                                                        <div><i class='bx bx-trash text-white'></i></div>
+                                                    </div>
+
                                                     </div>
                                                     @empty
                                                         <p class="text-danger">Address Not Available.</p>
-                                                    @endforelse                                                   
+                                                    @endforelse
                                                 </div>
                                                 <a href="{{ url('user/add-address') }}" class="btn btn-dark btn-ecomm">Add
                                                     New Address</a>

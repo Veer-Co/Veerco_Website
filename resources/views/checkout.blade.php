@@ -178,42 +178,41 @@
                                     <div class="col-12 col-xl-4">
                                         <div class="checkout-form p-3 bg-light">
 
-                                            <div class="card rounded-0 shadow-none mb-3 border">
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <!-- <div class="shipping-aadress">
-                                                                <h5 class="mb-3">Shipping Address:</h5>
-                                                                @if ($shipping_addr)
-                                                                    <p class="mb-1"><b class="text-dark">Name:</b>
-                                                                        {{ $shipping_addr->fname . ' ' . $shipping_addr->lname }}
-                                                                    </p>
-                                                                    <p class="mb-1"><b class="text-dark">Address:</b>
-                                                                        {{ $shipping_addr->locationName }},
-                                                                        {{ $shipping_addr->townName }},
-                                                                        {{ $shipping_addr->city }},
-                                                                        {{ $shipping_addr->state }},
-                                                                        {{ $shipping_addr->country }},
-                                                                        {{ $shipping_addr->pincode }}</p>
-                                                                    <p class="mb-1"><b class="text-dark">Phone:</b>
-                                                                        {{ $shipping_addr->mobile }}</p>
-                                                                    <button class="btn proceed-checkout" type="button"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#shippingaddress">Change
-                                                                        Address</button>
-                                                                @else
-                                                                    <button class="btn proceed-checkout" type="button"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#shippingaddress">Add
-                                                                        Address</button>
-                                                                @endif
-
-                                                            </div> -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card rounded-0 mb-3 border bg-transparent shadow-none">
+                                            <!-- <div class="card rounded-0 shadow-none mb-3 border"> -->
+                                                <!-- <div class="card-body"> -->
+                                                <!--     <div class="row"> -->
+                                                <!--         <div class="col-md-12"> -->
+                                                <!--             <div class="shipping-aadress"> -->
+                                                <!--                 <h5 class="mb-3">Shipping Address:</h5> -->
+                                                <!--                 @if ($shipping_addr) -->
+                                                <!--                     <p class="mb-1"><b class="text-dark">Name:</b> -->
+                                                <!--                         {{ $shipping_addr->fname . ' ' . $shipping_addr->lname }} -->
+                                                <!--                     </p> -->
+                                                <!--                     <p class="mb-1"><b class="text-dark">Address:</b> -->
+                                                <!--                         {{ $shipping_addr->locationName }}, -->
+                                                <!--                         {{ $shipping_addr->townName }}, -->
+                                                <!--                         {{ $shipping_addr->city }}, -->
+                                                <!--                         {{ $shipping_addr->state }}, -->
+                                                <!--                         {{ $shipping_addr->country }}, -->
+                                                <!--                         {{ $shipping_addr->pincode }}</p> -->
+                                                <!--                     <p class="mb-1"><b class="text-dark">Phone:</b> -->
+                                                <!--                         {{ $shipping_addr->mobile }}</p> -->
+                                                <!--                     <button class="btn proceed-checkout" type="button" -->
+                                                <!--                         data-bs-toggle="modal" -->
+                                                <!--                         data-bs-target="#shippingaddress">Change -->
+                                                <!--                         Address</button> -->
+                                                <!--                 @else -->
+                                                <!--                     <button class="btn proceed-checkout" type="button" -->
+                                                <!--                         data-bs-toggle="modal" -->
+                                                <!--                         data-bs-target="#shippingaddress">Add -->
+                                                <!--                         Address</button> -->
+                                                <!--                 @endif -->
+                                                <!--             </div> -->
+                                                <!--         </div> -->
+                                                <!--     </div> -->
+                                                <!-- </div> -->
+                                            <!-- </div> -->
+                                            <div class="card rounded-0 mb-3 border bg-white shadow-none">
                                                 <div class="card-body">
                                                     <p class="fs-5">Apply Discount Code</p>
                                                     <form id="discount_coupon" name="discount_coupon">
@@ -260,7 +259,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="card rounded-0 border bg-transparent mb-0 shadow-none">
+                                                <div class="card rounded-0 border bg-white mb-0 shadow-none">
                                                     <div class="card-body">
                                                         <p class="mb-2">Price ({{ $prod_lists->count() }} Items): <span
                                                                 class="float-end">&#8377;{{ number_format((float) $total, 2, '.', '') }}</span>

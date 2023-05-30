@@ -15,7 +15,7 @@ REFUND/CANCELLATION - Veer & Co
                     <div class="col-sm-12 mb-2">
                         <div class="card border shadow">
                             <div class="card-header">
-                                <h3>REFUND/CANCELLATION</h3>
+                                <h3>RETURN/REFUND/CANCELLATION</h3>
                             </div>
                             <div class="card-body">
                                 <strong>Returns and Cancellations Terms</strong>
@@ -44,7 +44,7 @@ the user manual, warranty card, and invoice.</p>
 locations/areas under the serviceable pin code. In any case, the customer’s area does not fall under
 serviceable location, they must send the products to the following address:</p>
                                 <p>VeerCo assumes that users have carefully read, understood and accepted the terms and
-                                    <p>Order cancellation process : Customers in case want to cancel their purchase, must write an email to order@veerco.online or call on our helpline number +91-9710076550 
+                                    <p>Order cancellation process : Customers in case want to cancel their purchase, must write an email to order@veerco.online or call on our helpline number +91-9710076550
                                         Please be aware that cancellation requests will only be accepted before the shipment of the order.</p>
                                         <ul>
                                             <b>We at VeerCo hold the right to cancel the order when:</b>
@@ -55,23 +55,23 @@ serviceable location, they must send the products to the following address:</p>
                                             <li>Our Inspection & Quality Department has found issues in the products in stock.</li>
                                             <li>There provided address is incomplete or incorrect </li>
                                         </ul>
-                                        <p><b>Refund Procedure:</b> The refund request can only be made if the specified model or specs of the 
-                                            product is unavailable or out of stock. In such case, customers may choose a refund following 
+                                        <p><b>Refund Procedure:</b> The refund request can only be made if the specified model or specs of the
+                                            product is unavailable or out of stock. In such case, customers may choose a refund following
                                             the procedure prescribed below:</p>
-                                            <p>You can simply call our Supply Chain Team at +91-9710076550 or send us an email at order@veerco.online 
-                                                with your Order Id. After acceptance, your reimbursement will be processed. One of three procedures will 
+                                            <p>You can simply call our Supply Chain Team at +91-9710076550 or send us an email at order@veerco.online
+                                                with your Order Id. After acceptance, your reimbursement will be processed. One of three procedures will
                                                 be used to credit your account after your refund has been approved:</p>
 
                                                 <ul>
-                                                    <li>If you made a bank transfer payment to our account, like an NEFT transfer, 
+                                                    <li>If you made a bank transfer payment to our account, like an NEFT transfer,
                                                         you will receive the refund in the same account. </li>
-                                                        <li>The same method you used to purchase the item as a refund (called Back to Source, 
-                                                            this method is available for all sellers) such as a Debit or Credit Card to make 
+                                                        <li>The same method you used to purchase the item as a refund (called Back to Source,
+                                                            this method is available for all sellers) such as a Debit or Credit Card to make
                                                             your purchase, your refund would be made to the same card or account.</li>
-                                                         <li>The money will be returned to the same wallet whether you paid using a 
+                                                         <li>The money will be returned to the same wallet whether you paid using a
                                                                 QR code and Paytm or any other digital wallet.</li>
                                                 </ul>
-                                        <p>You will get an email confirming the refund once it is initiated from our end, and it will take up 
+                                        <p>You will get an email confirming the refund once it is initiated from our end, and it will take up
                                             to 5 working days to credit the money to your account. </p>
                                             <p> <strong>Rules and Regulations :</strong>You may get in touch with us at the aforementioned contact number or email address if the amount is still not reflected. </p>
                                         <ul>

@@ -15,7 +15,7 @@ class CheckoutController extends Controller
 {
     public function index()
     {
-        if (Auth::check()) {  
+        if (Auth::check()) {
             $userid = Auth::user()->id;
             $prod_lists = Cart::where('userid', $userid)->get();
             $shipping_addr = Address::where('userid', Auth::user()->id)->where('address_status', 2)->first();
@@ -34,7 +34,7 @@ class CheckoutController extends Controller
 
     public function addressMakeDefault(Request $request)
     {
-        if (Auth::check()) {  
+        if (Auth::check()) {
             $userid = Auth::user()->id;
             $addr_status = Address::where('userid', $userid)->where('address_status', 2)->update(['address_status' => 1]);
             $addr_default = Address::where('userid', $userid)->where('id', $request->make_address_default)->update([
@@ -69,7 +69,7 @@ class CheckoutController extends Controller
                         'pincode' => $useraddr->pincode,
                         'total_amount' => $request->amount,
                         'payment_mode' => $request->payment_mode,
-                    ]);   
+                    ]);
 
                     $cartItems = Cart::where('userid', Auth::id())->get();
                     foreach ($cartItems as $key => $cartitem) {
@@ -88,11 +88,11 @@ class CheckoutController extends Controller
                     return redirect()->back()->with(session()->flash('error', $e->getMessage()));
                 }
             } else {
-                return redirect()->back()->with(session()->flash('error', 'Something went wrong. Please! try again later.'));
+                return redirect()->back()->with(session()->flash('error', 'Something went wrong. Please check if you have added an address'));
             }
         } else {
             return response()->json(['status' => "Login to continue"]);
         }
-        
+
     }
 }

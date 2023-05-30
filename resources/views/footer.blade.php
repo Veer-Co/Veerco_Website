@@ -27,12 +27,12 @@
                             <li class="mb-1"><a href="{{url('products')}}"><i class='bx bx-chevron-right'></i> Shop By Products</a></li>
                             <li class="mb-1"><a href="{{url('category')}}"><i class='bx bx-chevron-right'></i> Shop By Category</a></li>
                             <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> HVAC</a></li>
-                            <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Dealerships</a></li>
-                            <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Advertise in Veer & Co</a></li>
-                            <li class="mb-1"><a href="javascript:;" class="liabl"> Assistance</a></li>
-                            <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Track Your Order</a></li>
-                            <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Order Support</a></li>
-                            <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> FAq</a></li>
+                            <!-- <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Dealerships</a></li> -->
+                            <!-- <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Advertise in Veer & Co</a></li> -->
+                            <!-- <li class="mb-1"><a href="javascript:;" class="liabl"> Assistance</a></li> -->
+                            <!-- <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Track Your Order</a></li> -->
+                            <li class="mb-1"><a href="{{url('user/order')}}"><i class='bx bx-chevron-right'></i> View Orders</a></li>
+                            <!-- <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> FAq</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -40,16 +40,16 @@
                     <div class="footer-section2 mb-3">
                         <h6 class="mb-3 text-uppercase">Other Links</h6>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> About Us</a></li>
+                            <!-- <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> About Us</a></li> -->
                             <li class="mb-1"><a href="{{url('term/condition')}}"><i class='bx bx-chevron-right'></i> Term & Conditions</a></li>
                             <li class="mb-1"><a href="{{url('privacy/policy')}}"><i class='bx bx-chevron-right'></i> Privacy Policy</a></li>
                             <li class="mb-1"><a href="{{url('return/policy')}}"><i class='bx bx-chevron-right'></i> Return Policy</a></li>
+                            <li class="mb-1"><a href="{{url('return/policy')}}"><i class='bx bx-chevron-right'></i> Refund Policy</a></li>
+                            <li class="mb-1"><a href="{{url('return/policy')}}"><i class='bx bx-chevron-right'></i> Cancellation Policy</a></li>
                             <li class="mb-1"><a href="{{url('shipping/policy')}}"><i class='bx bx-chevron-right'></i> Shipping Policy</a></li>
-                            <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Refund Policy</a></li>
-                            <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Cancellation Policy</a></li>
-                            <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Careers</a></li>
-                            <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Blog</a></li>
-                        </ul> 
+                            <!-- <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Careers</a></li> -->
+                            <!-- <li class="mb-1"><a href="javascript:;"><i class='bx bx-chevron-right'></i> Blog</a></li> -->
+                        </ul>
                     </div>
                 </div>
                 <div class="col-sm-2">

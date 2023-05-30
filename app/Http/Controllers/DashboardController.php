@@ -82,14 +82,14 @@ class DashboardController extends Controller
                 // return  $e->getMessage();
                 // $request->session()->put('error', $e->getMessage());
                 return redirect()->back()->with(session()->flash('error', $e->getMessage()));
-            }    
+            }
 
             if ($addr_status && $address_stored) {
                 if ($request->chelbrt == 'chec_ldsa') {
                     return redirect()->back()->with(session()->flash('success', 'Address Successfully Saved.'));
                 } else {
                     return redirect('user/address')->with(session()->flash('success', 'Address Successfully Saved.'));
-                }            
+                }
             } else {
                 return redirect()->back()->with(session()->flash('error', 'Something went wrong.'));
             }
@@ -120,9 +120,9 @@ class DashboardController extends Controller
                     // return  $e->getMessage();
                     // $request->session()->put('error', $e->getMessage());
                     return redirect()->back()->with(session()->flash('error', $e->getMessage()));
-                } 
+                }
                 Auth::login(['email' => $request->email, 'password' => $request->mobile, 'active' => 1]);
-            } else {                
+            } else {
                 try {
                     $user = User::create([
                         'first_name' => $request->fname,
@@ -153,21 +153,32 @@ class DashboardController extends Controller
                     // return  $e->getMessage();
                     // $request->session()->put('error', $e->getMessage());
                     return redirect()->back()->with(session()->flash('error', $e->getMessage()));
-                }    
-    
+                }
+
                 if ($addr_status && $address_stored) {
                     if ($request->chelbrt == 'chec_ldsa') {
                         return redirect()->back()->with(session()->flash('success', 'Address Successfully Saved.'));
                     } else {
                         return redirect('user/address')->with(session()->flash('success', 'Address Successfully Saved.'));
-                    }            
+                    }
                 } else {
                     return redirect()->back()->with(session()->flash('error', 'Something went wrong.'));
-                }                
+                }
 
-                event(new Registered($user));        
+                event(new Registered($user));
                 Auth::login($user);
             }
+        }
+    }
+
+    public function removeAddress($id)
+    {
+        $address = Address::find($id);
+        if ($address) {
+            $address->delete();
+            return redirect()->back()->with(session()->flash('success', 'Address Successfully Deleted.'));
+        } else {
+            return redirect()->back()->with(session()->flash('error', 'Something went wrong.'));
         }
     }
 
@@ -176,7 +187,7 @@ class DashboardController extends Controller
         if (Auth::check()) {
 
         } else{
-            if (User::where('mobile', $request->mobile)->orWhere('email', $request->email)->exists()) {                
+            if (User::where('mobile', $request->mobile)->orWhere('email', $request->email)->exists()) {
                 try {
                     $userdetails = User::where('mobile', $request->mobile)->orWhere('email', $request->email)->first();
                     $addr_status = Address::where('userid', $userdetails->id)->where('address_status', 2)->update(['address_status' => 1]);
@@ -203,8 +214,8 @@ class DashboardController extends Controller
                     // return  $e->getMessage();
                     // $request->session()->put('error', $e->getMessage());
                     return redirect()->back()->with(session()->flash('error', $e->getMessage()));
-                } 
-            } else {                
+                }
+            } else {
                 try {
                     $user = User::create([
                         'first_name' => $request->fname,
@@ -230,26 +241,26 @@ class DashboardController extends Controller
                     ]);
                     $cartdetails = Cart::where('session_id', Session::getId())->update([
                         'userid' => $user->id,
-                    ]);    
+                    ]);
 
-                    event(new Registered($user));        
+                    event(new Registered($user));
                     Auth::login($user);
                     return redirect('checkout');
                 } catch (Exception $e) {
                     // return  $e->getMessage();
                     // $request->session()->put('error', $e->getMessage());
                     return redirect()->back()->with(session()->flash('error', $e->getMessage()));
-                }    
-    
+                }
+
                 // if ($addr_status && $address_stored) {
                 //     if ($request->chelbrt == 'chec_ldsa') {
                 //         return redirect()->back()->with(session()->flash('success', 'Address Successfully Saved.'));
                 //     } else {
                 //         return redirect('user/address')->with(session()->flash('success', 'Address Successfully Saved.'));
-                //     }            
+                //     }
                 // } else {
                     return redirect()->back()->with(session()->flash('error', 'Something went wrong.'));
-                // }            
+                // }
             }
         }
     }
@@ -275,7 +286,7 @@ class DashboardController extends Controller
             // return  $e->getMessage();
             // $request->session()->put('error', $e->getMessage());
             return redirect()->back()->with(session()->flash('error', $e->getMessage()));
-        }  
+        }
 
         if ($userupdate) {
             return redirect()->back()->with(session()->flash('success', 'Details Successfully Updated.'));
@@ -304,13 +315,13 @@ class DashboardController extends Controller
             // return  $e->getMessage();
             // $request->session()->put('error', $e->getMessage());
             return redirect()->back()->with(session()->flash('error', $e->getMessage()));
-        } 
+        }
 
         if ($userpass) {
             return redirect()->back()->with(session()->flash('success', 'Password Successfully Updated.'));
         } else {
             return redirect()->back()->with(session()->flash('success', 'Something! went wrong. Please! try again later.'));
         }
-        
+
     }
 }
