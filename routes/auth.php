@@ -43,10 +43,11 @@ Route::middleware('auth')->group(function () {
     Route::get('user/user-details', [DashboardController::class, 'showUserDetails'])->name('user.user-details');
 
     Route::post('user/addAddress', [DashboardController::class, 'storeAddress'])->name('user.addAddress');
+    Route::post('user/removeAddress', [DashboardController::class, 'removeAddress'])->name('user.removeAddress');
     Route::put('user/updateUser', [DashboardController::class, 'updateUserDetails'])->name('user.updateUser');
     Route::put('user/updatePassword', [DashboardController::class, 'updateOldPassword'])->name('user.updatePassword');
-    Route::get('user/order', [DashboardController::class, 'orderIndex'])->name('user/order'); 
-    Route::get('user/order-list/{orderid}', [DashboardController::class, 'orderList'])->name('user.order.{orderid}'); 
+    Route::get('user/order', [DashboardController::class, 'orderIndex'])->name('user/order');
+    Route::get('user/order-list/{orderid}', [DashboardController::class, 'orderList'])->name('user.order.{orderid}');
     // Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
     //             ->name('verification.notice');
 
@@ -65,7 +66,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
-    
+
     Route::post('addressMakeDefault', [CheckoutController::class, 'addressMakeDefault'])->name('addressMakeDefault');
     Route::post('completeOrder', [CheckoutController::class, 'completeOrder'])->name('completeOrder');
     Route::post('promocode-match', [MainController::class, 'promocodeMatch'])->name('promocode-match');

@@ -171,9 +171,9 @@ class DashboardController extends Controller
         }
     }
 
-    public function removeAddress($id)
+    public function removeAddress(Request $request)
     {
-        $address = Address::find($id);
+        $address = Address::find($request->id);
         if ($address) {
             $address->delete();
             return redirect()->back()->with(session()->flash('success', 'Address Successfully Deleted.'));

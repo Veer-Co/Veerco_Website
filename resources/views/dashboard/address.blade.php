@@ -78,15 +78,14 @@
                                                             {{$address->country}},
                                                             ({{$address->pincode}})
                                                     </address>
+                                                    {{$address}}
 
-
-                                                    <div class="btn btn-warning" style="padding: 0px; padding-left: 6px; pading-bottom:2px;">
-                                                        <div><i class='bx bx-edit text-dark'></i></div>
-                                                    </div>
-
-                                                    <div class="btn btn-danger" style="padding: 0px; padding-left: 6px; pading-bottom:2px;">
-                                                        <div><i class='bx bx-trash text-white'></i></div>
-                                                    </div>
+                                                    <form action="{{ route('user.removeAddress', ['id'=>$address->id]) }}" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger" style="padding:4px; padding-left:9px">
+                                                            <i class='bx bx-trash text-white'></i>
+                                                        </button>
+                                                    </form>
 
                                                     </div>
                                                     @empty
