@@ -88,6 +88,7 @@ class ComposerStaticInit75e8a5dce6ed5726e261ff7fe04e5987
             'Spatie\\Ignition\\' => 16,
             'Spatie\\FlareClient\\' => 19,
             'Spatie\\Backtrace\\' => 17,
+            'Seshac\\Shiprocket\\' => 18,
         ),
         'R' => 
         array (
@@ -332,6 +333,10 @@ class ComposerStaticInit75e8a5dce6ed5726e261ff7fe04e5987
         'Spatie\\Backtrace\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/backtrace/src',
+        ),
+        'Seshac\\Shiprocket\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -5763,6 +5768,26 @@ class ComposerStaticInit75e8a5dce6ed5726e261ff7fe04e5987
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/type/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/type/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Seshac\\Shiprocket\\Clients\\Client' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Clients/Client.php',
+        'Seshac\\Shiprocket\\Clients\\ShiprocketClient' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Clients/ShiprocketClient.php',
+        'Seshac\\Shiprocket\\Exceptions\\ShiprocketException' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Exceptions/ShiprocketException.php',
+        'Seshac\\Shiprocket\\Resources\\ChannelResource' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Resources/ChannelResource.php',
+        'Seshac\\Shiprocket\\Resources\\CourierResource' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Resources/CourierResource.php',
+        'Seshac\\Shiprocket\\Resources\\GenerateResource' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Resources/GenerateResource.php',
+        'Seshac\\Shiprocket\\Resources\\NdrResource' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Resources/NdrResource.php',
+        'Seshac\\Shiprocket\\Resources\\OrderResource' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Resources/OrderResource.php',
+        'Seshac\\Shiprocket\\Resources\\PickupResource' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Resources/PickupResource.php',
+        'Seshac\\Shiprocket\\Resources\\ProductResource' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Resources/ProductResource.php',
+        'Seshac\\Shiprocket\\Resources\\Resource' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Resources/Resource.php',
+        'Seshac\\Shiprocket\\Resources\\ResourceInterface' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Resources/ResourceInterface.php',
+        'Seshac\\Shiprocket\\Resources\\ShipmentResource' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Resources/ShipmentResource.php',
+        'Seshac\\Shiprocket\\Resources\\TrackingResource' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Resources/TrackingResource.php',
+        'Seshac\\Shiprocket\\Resources\\WarehouseResource' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Resources/WarehouseResource.php',
+        'Seshac\\Shiprocket\\Shiprocket' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Shiprocket.php',
+        'Seshac\\Shiprocket\\ShiprocketApi' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/ShiprocketApi.php',
+        'Seshac\\Shiprocket\\ShiprocketServiceProvider' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/ShiprocketServiceProvider.php',
+        'Seshac\\Shiprocket\\Traits\\Authenticate' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Traits/Authenticate.php',
+        'Seshac\\Shiprocket\\Wrapper' => __DIR__ . '/..' . '/seshac/laravel-shiprocket-api/src/Wrapper.php',
         'Spatie\\Backtrace\\Backtrace' => __DIR__ . '/..' . '/spatie/backtrace/src/Backtrace.php',
         'Spatie\\Backtrace\\CodeSnippet' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippet.php',
         'Spatie\\Backtrace\\File' => __DIR__ . '/..' . '/spatie/backtrace/src/File.php',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
+use Seshac\Shiprocket\Shiprocket;
 
 class OrderController extends Controller
 {
@@ -73,5 +74,12 @@ class OrderController extends Controller
     {
         $deliveredorders = Order::where('status', 2)->paginate(20);
         return view('admin/delivered-order', compact('deliveredorders'));
+    }
+
+    public function trackOrder(Request $request){
+        $orderId = $request->orderid;
+        $token =  Shiprocket::getToken();
+        $shipment =  Shiprocket::track($token)->throwOrderId($orderId);
+        return $shipment;
     }
 }

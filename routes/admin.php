@@ -9,6 +9,7 @@ use App\Http\Controllers\Adminauth\PasswordResetLinkController;
 use App\Http\Controllers\Adminauth\RegisteredUserController;
 use App\Http\Controllers\Adminauth\VerifyEmailController;
 use App\Http\Controllers\AdminCategory;
+use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\BulkProduct;
 use App\Http\Controllers\CategoryController;
@@ -66,6 +67,7 @@ Route::group(['middleware' => ['adminauth:admin'], 'prefix' => 'admin', 'as' => 
     Route::get('shipped-order', [OrderController::class, 'shippedOrder'])->name('shipped-order');
     Route::post('delivered', [OrderController::class, 'delivered'])->name('delivered');
     Route::get('delivered-order', [OrderController::class, 'deliveredOrder'])->name('delivered-order');
+    Route::post('track-order', [OrderController::class, 'trackOrder'])->name('track.shipment');
     Route::get('product-tax', [ProductController::class, 'productTax'])->name('product-tax');
     Route::post('taxSetup', [ProductController::class, 'taxSetup'])->name('taxSetup');
     Route::post('taxCrush', [ProductController::class, 'taxCrush'])->name('taxCrush');
@@ -85,6 +87,6 @@ Route::group(['middleware' => ['adminauth:admin'], 'prefix' => 'admin', 'as' => 
 
 
 
-// Route::get('auth/login', [AdminDashboard::class, 'login'])->name('auth/login');
-// Route::get('dashboard', [AdminDashboard::class, 'dashboard'])->name('dashboard');
+Route::get('auth/login', [AdminDashboard::class, 'login'])->name('auth/login');
+Route::get('dashboard', [AdminDashboard::class, 'dashboard'])->name('dashboard');
 

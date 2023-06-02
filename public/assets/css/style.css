@@ -543,7 +543,7 @@ footer h6 {
         max-height: 206px !important;
     }
 }
-@media only screen and (min-width: 568px){    
+@media only screen and (min-width: 568px){
     .pnm{
         display: none;
     }
@@ -805,17 +805,16 @@ hr.underlinskd {
 
 .category_after_nav{
     /* min-height: 86px !important;
-    max-height: 86px !important;
-    min-width: 100%; */
-    width: 160px;
-    height: 140px;
+    /* max-height: 86px !important; */
+    max-width: 100%;
+    /* width: 160px; */
 }
 .banner_height{
     min-height: 422px;
     max-height: 422px;
 }
 .owl-carousel .owl-stage {
-    display: flex; 
+    display: flex;
 }
 
 .owl-carousel .owl-item .brand_logos {
@@ -824,10 +823,10 @@ hr.underlinskd {
     object-fit: cover;
     object-position: center;
 }
-.owl-carousel .owl-item .item a{    
+.owl-carousel .owl-item .item a{
     display: flex;
     align-items: center;
-    justify-content: center;  
+    justify-content: center;
 }
 
 .brand_card{
@@ -851,7 +850,7 @@ hr.underlinskd {
     color: #ffffff;
     display: flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     padding: 6px;
@@ -866,7 +865,7 @@ hr.underlinskd {
     height: 300px;
     position: relative;
   } */
-  
+
 .product-label  .new {
     background: red;
     color: white;
@@ -881,10 +880,11 @@ hr.underlinskd {
 }
 .product-card .card-body{
     padding-top: 0px !important;
-} 
+    height: 100%;
+}
 
-@media only screen 
-  and (min-device-width: 768px) 
+@media only screen
+  and (min-device-width: 768px)
   and (max-device-width: 1024px) {
     .minitabview{
         display: block;
@@ -896,8 +896,8 @@ hr.underlinskd {
         display: none;
     }
 }
-@media only screen 
-  and (min-device-width: 320px) 
+@media only screen
+  and (min-device-width: 320px)
   and (max-device-width: 480px){
     .minitabview{
         display: none;
@@ -907,8 +907,8 @@ hr.underlinskd {
     }
 
 }
-@media only screen 
-  and (min-device-width: 820px) 
+@media only screen
+  and (min-device-width: 820px)
   and (max-device-width: 1180px) {
     .minitabview{
         display: none;
@@ -921,9 +921,9 @@ hr.underlinskd {
     }
 }
 
-@media screen 
-  and (min-device-width: 1200px) 
-  and (max-device-width: 1600px) { 
+@media screen
+  and (min-device-width: 1200px)
+  and (max-device-width: 1600px) {
     .minitabview{
         display: none;
     }

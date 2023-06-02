@@ -184,7 +184,7 @@
                         </a></li>
                     <li class="nav-item nav-padding"> <a class="nav-link" href="{{ url('products') }}">Products </a>
                     </li>
-                    <li class="nav-item nav-padding"> <a class="nav-link" href="#">HVAC </a></li>
+                    <li class="nav-item nav-padding"> <a class="nav-link" href="{{url('products/category/hvac')}}">HVAC </a></li>
                     @auth
                         <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle dropdown-toggle-nocaret"
                                 href="{{ url('user/dashboard') }}" data-bs-toggle="dropdown">My Account <i

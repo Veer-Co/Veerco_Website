@@ -182,6 +182,16 @@ class DashboardController extends Controller
         }
     }
 
+    public function editAddress(Request $request)
+    {
+        $address = Address::find($request->id);
+        if ($address) {
+            return view('user.edit-address', compact('address'));
+        } else {
+            return redirect()->back()->with(session()->flash('error', 'Something went wrong.'));
+        }
+    }
+
     public function storeGuestAddress(Request $request)
     {
         if (Auth::check()) {

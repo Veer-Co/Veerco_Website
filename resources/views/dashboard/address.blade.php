@@ -78,7 +78,7 @@
                                                             {{$address->country}},
                                                             ({{$address->pincode}})
                                                     </address>
-                                                    {{$address}}
+                                                    <!-- {{$address}} -->
 
                                                     <form action="{{ route('user.removeAddress', ['id'=>$address->id]) }}" method="POST" enctype="multipart/form-data">
                                                         @csrf

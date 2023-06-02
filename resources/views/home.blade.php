@@ -9,32 +9,32 @@
             <div class="fluid-container px-2">
                 <div class="col-lg-12">
                     <div class="row">
-                        <!-- <div class="col-lg-3 category_set_after_navbar"> -->
-                            <!-- <div class="card"> -->
-                            <!--     <div class="card-header bg-info pb-0"> -->
-                            <!--         <h6>Explore Product Categories</h6> -->
-                            <!--     </div> -->
-                            <!--     <div class="card-body"> -->
-                            <!--         <div class="col-lg-12"> -->
-                            <!--             <div class="row"> -->
-                            <!--                 @foreach ($categories->take(4) as $category) -->
-                            <!--                 <div class="col-lg-6 mb-1 text-center"> -->
-                            <!--                     <a href="{{url('products/category').'/'.$category->category_slug}}" class="text-black"> -->
-                            <!--                         <img src="{{asset('uploads/category').'/'.$category->category_image}}" -->
-                            <!--                             alt="{{$category->category}}" title="{{$category->category}}" class="category_after_nav"> -->
-                            <!--                         <span class="fw-bold" title="{{$category->category}}">{{ \Illuminate\Support\Str::limit($category->category, 20, $end='...') }}</span> -->
-                            <!--                     </a> -->
-                            <!--                 </div> -->
-                            <!--                 @endforeach -->
-                            <!--                 <div class="col-lg-12"> -->
-                            <!--                     <a href="{{url('category')}}" class="float-end">See All</a> -->
-                            <!--                 </div> -->
-                            <!--             </div> -->
-                            <!--         </div> -->
-                            <!--     </div> -->
-                            <!-- </div> -->
-                        <!-- </div> -->
-                        <div class="col-lg-9 mx-auto w-100">
+                        <div class="col-lg-3 category_set_after_navbar">
+                            <div class="card" style="height:100%">
+                                <div class="card-header bg-inf pb-0">
+                                    <h6>Explore Product Categories</h6>
+                                </div>
+                                <div class="" style="padding:5px">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            @foreach ($categories->take(4) as $category)
+                                            <div class="col-lg-6 text-center">
+                                                <a href="{{url('products/category').'/'.$category->category_slug}}" class="text-black">
+                                                    <img src="{{asset('uploads/category').'/'.$category->category_image}}"
+                                                        alt="{{$category->category}}" title="{{$category->category}}" class="category_after_nav">
+                                                    <span class="fw-bold" title="{{$category->category}}">{{ \Illuminate\Support\Str::limit($category->category, 20, $end='...') }}</span>
+                                                </a>
+                                            </div>
+                                            @endforeach
+                                            <div class="col-lg-12">
+                                                <a href="{{url('category')}}" class="float-end">See All</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 mx-auto">
                             <!--start slider section-->
                             <section class="slider-section">
                                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
