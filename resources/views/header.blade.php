@@ -143,14 +143,7 @@
                                                     0
                                                 @endif
                                             @else
-                                                @php
-                                                    $cartitemswi = \App\Models\Cart::where('session_id', Session::getId())->count();
-                                                @endphp
-                                                @if ($cartitemswi)
-                                                    {{ $cartitemswi }}
-                                                @else
                                                     0
-                                                @endif
                                             @endauth
 
                                         </span>

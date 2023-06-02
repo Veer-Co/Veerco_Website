@@ -321,7 +321,7 @@
                                                     </div>
                                                 </div>
                                                 {{-- <div class="bought-products-image">
-                                                <div class="bt-product last w-75 text-center"> 
+                                                <div class="bt-product last w-75 text-center">
                                                     <button class="addedetoservicecart"><i class="bi bi-cart-plus"></i> Add 3 Items to Cart</button>
                                                 </div>
                                             </div> --}}
@@ -425,7 +425,21 @@
                                                     @csrf
                                                     <div class="form-body p-3">
                                                         <h4 class="mb-4">Write a Review</h4>
-                                                        <div class="mb-2">
+                                                    @auth
+                                                        <div class="mb-2" style="display:none;">
+                                                            <label class="form-label">Your Your Name*</label>
+                                                            <input type="text" name="name" value="{{Auth::user()->first_name}} {{Auth::user()->last_name}}"
+                                                                placeholder="Enter your name" required type="hidden"
+                                                                class="form-control rounded-0">
+                                                        </div>
+                                                        <div class="mb-2" style="display:none;">
+                                                            <label class="form-label">Your Your E-mail Id*</label>
+                                                            <input type="email" name="email" value="{{Auth::user()->email}}"
+                                                                placeholder="Enter your email id" required type="hidden"
+                                                                class="form-control rounded-0">
+                                                    </div>
+                                                    @else
+                                                    <div class="mb-2">
                                                             <label class="form-label">Your Your Name*</label>
                                                             <input type="text" name="name"
                                                                 placeholder="Enter your name" required
@@ -436,7 +450,8 @@
                                                             <input type="email" name="email"
                                                                 placeholder="Enter your email id" required
                                                                 class="form-control rounded-0">
-                                                        </div>
+                                                    </div>
+                                                    @endif
                                                         <input type="hidden" name="productid"
                                                             value="{{ $productdetails->product_id }}" required />
                                                         <div class="mb-2">
@@ -457,7 +472,7 @@
                                                         <div class="mb-2">
                                                             <label class="form-label">Choose a photo*</label>
                                                             <input type="file" name="reviewimage" id="reviewimage"
-                                                                required class="form-control" />
+                                                                class="form-control" />
                                                         </div>
                                                         <div class="d-grid">
                                                             <button type="submit" class="btn btn-ecomm">Submit a
@@ -540,7 +555,7 @@
                                                     <div class="beachs">
                                                         {{ ceil((($alsolike->mrp - $alsolike->price) / $alsolike->mrp) * 100) }}%
                                                         Off
-                                                    </div> 
+                                                    </div>
                                                     <img
                                                     src="{{ asset('uploads/products/') . '/' . $alsolike->thumbnail }}"
                                                     alt="{{ $alsolike->product_name ?? 'Veerco' }}">

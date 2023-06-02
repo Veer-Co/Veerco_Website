@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('rating', 20);
             $table->string('message');
-            $table->string('review_image');
+            $table->string('review_image')->nullable();
             $table->timestamps();
         });
     }

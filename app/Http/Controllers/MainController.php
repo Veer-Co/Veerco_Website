@@ -382,7 +382,7 @@ class MainController extends Controller
             'email' => ['required', 'email'],
             'rating' => ['required'],
             'message' => ['required', 'string'],
-            'reviewimage' => ['required', 'image', 'mimes:jpeg,png,jpg,webp'],
+            'reviewimage' => ['optional', 'image', 'mimes:jpeg,png,jpg,webp'],
         ]);
 
         if ($request->hasfile('reviewimage')) {
@@ -398,7 +398,9 @@ class MainController extends Controller
         $prating->email = $request->email;
         $prating->rating = $request->rating;
         $prating->message = $request->message;
-        $prating->review_image = $reviewimage;
+        if ($request->hasfile('reviewimage')) {
+            $prating->review_image = $reviewimage;
+        }
         $prating->save();
 
         if ($prating) {
