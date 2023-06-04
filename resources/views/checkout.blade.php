@@ -312,8 +312,8 @@
         <!-- Address Modal -->
         <div class="modal fade" id="shippingaddress" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
+            <div class="modal-dialog" style="overflow-y: scroll">
+                <div class="modal-content" style="overflow-y: scroll">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Shipping Address</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -349,8 +349,8 @@
         </div>
         <style>
             /* .modal{
-                display: block !important;
-            } */
+                                                display: block !important;
+                                            } */
             @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
                 .modal-dialog {
                     overflow-y: initial !important
@@ -376,8 +376,8 @@
         <!-- Add another address modal -->
         <div class="modal fade" id="addanotheraddress" data-bs-backdrop="static" style="overflow:scroll"
             data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
+            <div class="modal-dialog" style="overflow-y: scroll">
+                <div class="modal-content" style="overflow-y: scroll">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel"><i class="bi bi-pencil-square"></i>&nbsp;Add
                             another address</h5>

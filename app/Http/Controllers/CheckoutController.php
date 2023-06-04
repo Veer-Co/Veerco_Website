@@ -76,7 +76,6 @@ class CheckoutController extends Controller
                     $cartItems = Cart::where('userid', Auth::id())->get();
                     $orderitems = [];
                     foreach ($cartItems as $cartItem) {
-                        dd($cartItem);
                         $orderitems[] = [
                             "name" => $cartItem->product_name,
                             "sku" => $cartItem->product_code,
@@ -87,8 +86,6 @@ class CheckoutController extends Controller
                             "hsn" => $cartItem->hsn,
                         ];
                     }
-
-                    dd($orderitems);
 
                     $shiprocketOrder = [
                         "order_id" => $order->id,
