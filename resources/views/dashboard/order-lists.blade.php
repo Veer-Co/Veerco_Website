@@ -51,24 +51,32 @@
                                                                 <h6 class="card-title">Order Shipping Details</h6>
                                                             </div>
                                                             <div class="card-body">
-                                                                <p class="m-0">Name: {{$orders->fname.' '.$orders->lname}}</p>
+                                                                <p class="m-0">Name:
+                                                                    {{ $orders->fname . ' ' . $orders->lname }}</p>
                                                                 @if ($orders->email)
-                                                                <p class="m-0">E-mail Id: {{$orders->email}}</p>
-                                                                @endif                                                                
-                                                                <p class="m-0">Mobile: {{$orders->mobile}}</p>
-                                                                <p class="m-0">Address: {{$orders->address1}}, {{$orders->address2}}, {{$orders->city}}, {{$orders->state}}, {{$orders->country}}, {{$orders->pincode}}</p>
-                                                                <p class="m-0">Total Amount: &#8377;{{$orders->total_amount}}/-</p>
-                                                                <p class="m-0">Payment Mode: {{ucfirst($orders->payment_mode)}}</p>
+                                                                    <p class="m-0">E-mail Id: {{ $orders->email }}</p>
+                                                                @endif
+                                                                <p class="m-0">Mobile: {{ $orders->mobile }}</p>
+                                                                <p class="m-0">Address: {{ $orders->address1 }},
+                                                                    {{ $orders->address2 }}, {{ $orders->city }},
+                                                                    {{ $orders->state }}, {{ $orders->country }},
+                                                                    {{ $orders->pincode }}</p>
+                                                                <p class="m-0">Total Amount:
+                                                                    &#8377;{{ $orders->total_amount }}/-</p>
+                                                                <p class="m-0">Payment Mode:
+                                                                    {{ ucfirst($orders->payment_mode) }}</p>
                                                                 <p class="m-0">Order Status: </p>
                                                                 @if ($orders->status == 0)
-                                                                <div class="badge rounded-pill bg-warning">Pending</div>
-                                                                @endif 
+                                                                    <div class="badge rounded-pill bg-warning">Pending</div>
+                                                                @endif
                                                                 @if ($orders->status == 1)
-                                                                <div class="badge rounded-pill bg-primary">Order Confirmed</div>
-                                                                @endif   
+                                                                    <div class="badge rounded-pill bg-primary">Order
+                                                                        Confirmed</div>
+                                                                @endif
                                                                 @if ($orders->status == 2)
-                                                                <div class="badge rounded-pill bg-success">Completed</div>
-                                                                @endif 
+                                                                    <div class="badge rounded-pill bg-success">Completed
+                                                                    </div>
+                                                                @endif
                                                                 <div class="card-header mt-2 bg-primary">
                                                                     <h6 class="card-title text-white">Products List</h6>
                                                                 </div>
@@ -76,25 +84,27 @@
                                                                     {{-- <div class="row">
                                                                         <div class="col-sm-12 g-2">
                                                                             <div class="card"> --}}
-                                                                                <div class="card-header">
-                                                                                    <h6 class="card-title">#{{$key+1}} - {{$item->products->product_name}}</h6>
-                                                                                </div>
-                                                                                <div class="card-body">
-                                                                                    <p>Quantity: {{$item->quantity}}</p>
-                                                                                    <p>Price: &#8377;{{$item->price}}/-</p>
-                                                                                    <p>Order Date: {{$item->created_at->format('d-m-Y')}}</p>
-                                                                                </div>
-                                                                            {{-- </div>
+                                                                    <div class="card-header">
+                                                                        <h6 class="card-title">#{{ $key + 1 }} -
+                                                                            {{ $item->products->product_name }}</h6>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <p>Quantity: {{ $item->quantity }}</p>
+                                                                        <p>Price: &#8377;{{ $item->price }}/-</p>
+                                                                        <p>Order Date:
+                                                                            {{ $item->created_at->format('d-m-Y') }}</p>
+                                                                    </div>
+                                                                    {{-- </div>
                                                                         </div>
                                                                     </div> --}}
                                                                 @endforeach
                                                             </div>
-                                                            
+
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-                                                
+
+
                                             </div>
                                         </div>
                                     </div>

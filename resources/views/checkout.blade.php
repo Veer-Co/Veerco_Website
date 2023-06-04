@@ -128,33 +128,33 @@
                                                     @endforeach
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12"> <div class="shipping-aadress">
-                                                                <h5 class="mb-3">Shipping Address:</h5>
-                                                                @if ($shipping_addr)
-                                                                    <p class="mb-1"><b class="text-dark">Name:</b>
-                                                                        {{ $shipping_addr->fname . ' ' . $shipping_addr->lname }}
-                                                                    </p>
-                                                                    <p class="mb-1"><b class="text-dark">Address:</b>
-                                                                        {{ $shipping_addr->locationName }},
-                                                                        {{ $shipping_addr->townName }},
-                                                                        {{ $shipping_addr->city }},
-                                                                        {{ $shipping_addr->state }},
-                                                                        {{ $shipping_addr->country }},
-                                                                        {{ $shipping_addr->pincode }}</p>
-                                                                    <p class="mb-1"><b class="text-dark">Phone:</b>
-                                                                        {{ $shipping_addr->mobile }}</p>
-                                                                    <button class="btn proceed-checkout" type="button"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#shippingaddress">Change
-                                                                        Address</button>
-                                                                @else
-                                                                    <button class="btn proceed-checkout" type="button"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#shippingaddress">Add
-                                                                        Address</button>
-                                                                @endif
+                                            <div class="col-sm-12">
+                                                <div class="shipping-aadress">
+                                                    <h5 class="mb-3">Shipping Address:</h5>
+                                                    @if ($shipping_addr)
+                                                        <p class="mb-1"><b class="text-dark">Name:</b>
+                                                            {{ $shipping_addr->fname . ' ' . $shipping_addr->lname }}
+                                                        </p>
+                                                        <p class="mb-1"><b class="text-dark">Address:</b>
+                                                            {{ $shipping_addr->locationName }},
+                                                            {{ $shipping_addr->townName }},
+                                                            {{ $shipping_addr->city }},
+                                                            {{ $shipping_addr->state }},
+                                                            {{ $shipping_addr->country }},
+                                                            {{ $shipping_addr->pincode }}</p>
+                                                        <p class="mb-1"><b class="text-dark">Phone:</b>
+                                                            {{ $shipping_addr->mobile }}</p>
+                                                        <button class="btn proceed-checkout" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#shippingaddress">Change
+                                                            Address</button>
+                                                    @else
+                                                        <button class="btn proceed-checkout" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#shippingaddress">Add
+                                                            Address</button>
+                                                    @endif
 
-                                                            </div></div>
+                                                </div>
+                                            </div>
                                             {{-- <div class="card rounded-0 shadow-none mb-3 border">
                                             <div class="card-body">
                                                 <div class="row">
@@ -179,38 +179,42 @@
                                         <div class="checkout-form p-3 bg-light">
 
                                             <!-- <div class="card rounded-0 shadow-none mb-3 border"> -->
-                                                <!-- <div class="card-body"> -->
-                                                <!--     <div class="row"> -->
-                                                <!--         <div class="col-md-12"> -->
-                                                <!--             <div class="shipping-aadress"> -->
-                                                <!--                 <h5 class="mb-3">Shipping Address:</h5> -->
-                                                <!--                 @if ($shipping_addr) -->
-                                                <!--                     <p class="mb-1"><b class="text-dark">Name:</b> -->
-                                                <!--                         {{ $shipping_addr->fname . ' ' . $shipping_addr->lname }} -->
-                                                <!--                     </p> -->
-                                                <!--                     <p class="mb-1"><b class="text-dark">Address:</b> -->
-                                                <!--                         {{ $shipping_addr->locationName }}, -->
-                                                <!--                         {{ $shipping_addr->townName }}, -->
-                                                <!--                         {{ $shipping_addr->city }}, -->
-                                                <!--                         {{ $shipping_addr->state }}, -->
-                                                <!--                         {{ $shipping_addr->country }}, -->
-                                                <!--                         {{ $shipping_addr->pincode }}</p> -->
-                                                <!--                     <p class="mb-1"><b class="text-dark">Phone:</b> -->
-                                                <!--                         {{ $shipping_addr->mobile }}</p> -->
-                                                <!--                     <button class="btn proceed-checkout" type="button" -->
-                                                <!--                         data-bs-toggle="modal" -->
-                                                <!--                         data-bs-target="#shippingaddress">Change -->
-                                                <!--                         Address</button> -->
-                                                <!--                 @else -->
-                                                <!--                     <button class="btn proceed-checkout" type="button" -->
-                                                <!--                         data-bs-toggle="modal" -->
-                                                <!--                         data-bs-target="#shippingaddress">Add -->
-                                                <!--                         Address</button> -->
-                                                <!--                 @endif -->
-                                                <!--             </div> -->
-                                                <!--         </div> -->
-                                                <!--     </div> -->
-                                                <!-- </div> -->
+                                            <!-- <div class="card-body"> -->
+                                            <!--     <div class="row"> -->
+                                            <!--         <div class="col-md-12"> -->
+                                            <!--             <div class="shipping-aadress"> -->
+                                            <!--                 <h5 class="mb-3">Shipping Address:</h5> -->
+                                            <!--                 @if ($shipping_addr)
+    -->
+                                            <!--                     <p class="mb-1"><b class="text-dark">Name:</b> -->
+                                            <!--                         {{ $shipping_addr->fname . ' ' . $shipping_addr->lname }} -->
+                                            <!--                     </p> -->
+                                            <!--                     <p class="mb-1"><b class="text-dark">Address:</b> -->
+                                            <!--                         {{ $shipping_addr->locationName }}, -->
+                                            <!--                         {{ $shipping_addr->townName }}, -->
+                                            <!--                         {{ $shipping_addr->city }}, -->
+                                            <!--                         {{ $shipping_addr->state }}, -->
+                                            <!--                         {{ $shipping_addr->country }}, -->
+                                            <!--                         {{ $shipping_addr->pincode }}</p> -->
+                                            <!--                     <p class="mb-1"><b class="text-dark">Phone:</b> -->
+                                            <!--                         {{ $shipping_addr->mobile }}</p> -->
+                                            <!--                     <button class="btn proceed-checkout" type="button" -->
+                                            <!--                         data-bs-toggle="modal" -->
+                                            <!--                         data-bs-target="#shippingaddress">Change -->
+                                            <!--                         Address</button> -->
+                                            <!--
+@else
+    -->
+                                            <!--                     <button class="btn proceed-checkout" type="button" -->
+                                            <!--                         data-bs-toggle="modal" -->
+                                            <!--                         data-bs-target="#shippingaddress">Add -->
+                                            <!--                         Address</button> -->
+                                            <!--
+    @endif -->
+                                            <!--             </div> -->
+                                            <!--         </div> -->
+                                            <!--     </div> -->
+                                            <!-- </div> -->
                                             <!-- </div> -->
                                             <div class="card rounded-0 mb-3 border bg-white shadow-none">
                                                 <div class="card-body">
@@ -345,8 +349,8 @@
         </div>
         <style>
             /* .modal{
-        display: block !important;
-    } */
+                display: block !important;
+            } */
             @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
                 .modal-dialog {
                     overflow-y: initial !important
@@ -452,53 +456,53 @@
                             <div class="modal-body shopping-address-up">
                                 <div class="row g-3">
                                     <div class="form-group col-sm-6">
-                                        <label class="form-label">Enter First Name</label>
+                                        <label class="form-label">Enter First Name*</label>
                                         <input type="text" class="form-control" name="fname"
-                                            placeholder="Enter first name*" required />
+                                            placeholder="Enter first name" required />
                                     </div>
                                     <div class="form-group col-sm-6">
-                                        <label class="form-label">Enter Last Name</label>
+                                        <label class="form-label">Enter Last Name*</label>
                                         <input type="text" class="form-control" name="lname"
-                                            placeholder="Enter last name*" required />
+                                            placeholder="Enter last name" required />
                                     </div>
                                     <div class="form-group col-sm-6">
-                                        <label class="form-label">Enter E-mail ID</label>
+                                        <label class="form-label">Enter E-mail ID*</label>
                                         <input type="email" class="form-control" name="email"
                                             placeholder="Enter email id" />
                                     </div>
                                     <div class="form-group col-sm-6">
-                                        <label class="form-label">Enter Mobile Number</label>
+                                        <label class="form-label">Enter Mobile Number*</label>
                                         <input type="tel" class="form-control" name="mobile"
-                                            placeholder="Enter mobile number*" required />
+                                            placeholder="Enter mobile number" required />
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">Street/Location Name</label>
-                                        <input type="text" class="form-control" placeholder="Street/Location Name*"
+                                        <label class="form-label">Street/Location Name*</label>
+                                        <input type="text" class="form-control" placeholder="Street/Location Name"
                                             name="locationName" required />
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">Town/Village Name</label>
-                                        <input type="text" class="form-control" placeholder="Town/Village Name*"
+                                        <label class="form-label">Town/Village Name*</label>
+                                        <input type="text" class="form-control" placeholder="Town/Village Name"
                                             name="townName" required />
                                     </div>
                                     <div class="col-6">
-                                        <label class="form-label">City</label>
-                                        <input type="text" class="form-control" placeholder="City*" name="city"
+                                        <label class="form-label">City*</label>
+                                        <input type="text" class="form-control" placeholder="City" name="city"
                                             required />
                                     </div>
                                     <div class="col-6">
-                                        <label class="form-label">State</label>
-                                        <input type="text" class="form-control" placeholder="State*" name="state"
+                                        <label class="form-label">State*</label>
+                                        <input type="text" class="form-control" placeholder="State" name="state"
                                             required />
                                     </div>
                                     <div class="col-6">
-                                        <label class="form-label">Country</label>
-                                        <input type="text" class="form-control" placeholder="Country*" name="country"
+                                        <label class="form-label">Country*</label>
+                                        <input type="text" class="form-control" placeholder="Country" name="country"
                                             required />
                                     </div>
                                     <div class="col-6">
-                                        <label class="form-label">Pin Code</label>
-                                        <input type="text" class="form-control" placeholder="Pin Code*" name="pinCode"
+                                        <label class="form-label">Pin Code*</label>
+                                        <input type="text" class="form-control" placeholder="Pin Code" name="pinCode"
                                             required />
                                     </div>
                                 </div>

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('country');
             $table->string('pincode');
             $table->double('total_amount', 20,2);
+            $table->string('payment_mode');
             $table->tinyInteger('status')->default('0');
             $table->string('message')->nullable();
             $table->string('tracking_no')->nullable();

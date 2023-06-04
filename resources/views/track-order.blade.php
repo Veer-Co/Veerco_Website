@@ -5,5 +5,5 @@
 @section('content')
     <!--start page wrapper -->
     <div class="page-wrapper mt-2">
-
+        HI
     </div>

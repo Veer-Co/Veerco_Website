@@ -34,6 +34,6 @@ class Order extends Model
         'delivered_date' => 'datetime',
      ];
     public function order_items(){
-        return $this->hasMany(OrderItem::class, 'order_id', 'id');    
+        return $this->hasMany(OrderItem::class, 'order_id', 'id');
     }
 }

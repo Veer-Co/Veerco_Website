@@ -71,17 +71,21 @@
                                                             <input type="password" class="form-control border-end-0" id="password_confirmation" name="password_confirmation" required value="{{ old('password_confirmation') }}" placeholder="Enter Confirm Password">
                                                             <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
                                                         </div>
-                                                    </div>
+                                                </div>
+                                                <div class="text-center">
+                                                    <input type="checkbox" id="terms" name="terms" value="terms" required="true">
+                                                    <label for="terms">I agree to the <a href="javascript:;"> terms and conditions</a> and <a href="javascript:;"> privacy policy</a></label>
+                                                </div>
                                                     <div class="col-12">
                                                         <div class="d-grid">
                                                             <button type="submit" class="btn btn-danger">Register</button>
                                                         </div>
-                                                    </div>
+                                                </div>
                                                 </form>
                                             </div>
                                             <div class="m-0 pt-3 text-center">
                                                 <p class="m-0">Already have an account <a href="{{ url('login') }}" class="text-danger">Login</a></p>
-                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                     <!-- <div class="w-100 register_design" height="100%">

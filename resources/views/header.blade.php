@@ -132,18 +132,25 @@
                                                 <?php
                                                 if (Auth::check()) {
                                                     $cartitems = \App\Models\Cart::where('userid', Auth::user()->id)->count();
-                                                } else {
-                                                    $cartitems = \App\Models\Cart::where('session_id', Illuminate\Support\Facades\Session::getId())->count();
+                                            } else {
+                                                try{
+                                                        $cartitems = \App\Models\Cart::where('session_id', Illuminate\Support\Facades\Session::getId())->count();
+                                                }catch(Exception $e){
+                                                        $cartitems = 0;
                                                 }
-
+                                            }
                                                 ?>
-                                                @if ($cartitems)
                                                     {{ $cartitems }}
-                                                @else
-                                                    0
-                                                @endif
                                             @else
-                                                    0
+                                                <?php
+                                            try{
+                                                    $cartitems = \App\Models\Cart::where('session_id', Illuminate\Support\Facades\Session::getId())->count();
+                                            }catch(Exception $e){
+                                                $cartitems = 0;
+                                            }
+                                                ?>
+                                                                                                {{ $cartitems }}
+
                                             @endauth
 
                                         </span>

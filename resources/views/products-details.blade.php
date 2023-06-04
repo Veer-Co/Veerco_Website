@@ -392,9 +392,12 @@
                                                     @foreach ($proreviews as $proreview)
                                                         <div class="d-flex align-items-start">
                                                             <div class="review-user">
+                                                            @if ($proreview->review_image)
                                                                 <img src="{{ asset('uploads/reviews/') . '/' . $proreview->review_image }}"
                                                                     width="65" height="65" class="rounded-circle"
                                                                     alt="Product Review Image" />
+                                                            @else
+                                                            @endif
                                                             </div>
                                                             <div class="review-content ms-3">
                                                                 <div class="rates cursor-pointer fs-6">

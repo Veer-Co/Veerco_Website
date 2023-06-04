@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('userid');
             $table->string('productid');
+            $table->string('session_id')->nullable();
             $table->string('quantity', 90)->nullable();
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();
