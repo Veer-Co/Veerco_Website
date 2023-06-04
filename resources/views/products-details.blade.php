@@ -151,6 +151,7 @@
                                 </div>
                                 @if ($productdetails->tax_id)
                                     <div class="title">
+                                        {{ $productdetails->taxes->tax_percentage }}%
                                         {{ $productdetails->taxes->tax_name }} extra
                                     </div>
                                 @else
@@ -238,9 +239,11 @@
                                     </form>
                                     <form action="{{ route('buynow') }}" method="post" class="d-inline">
                                         @csrf
-                                        <input type="hidden" name="quantity" class="form-control qty-input text-center" value="1">
+                                        <input type="hidden" name="quantity" class="form-control qty-input text-center"
+                                            value="1">
                                         <input type="hidden" name="pid" value="{{ $productdetails->product_id }}">
-                                        <button type="submit" class="buy_now"><i class="bi bi-cart4"></i>&nbsp;Buy Now</button>
+                                        <button type="submit" class="buy_now"><i class="bi bi-cart4"></i>&nbsp;Buy
+                                            Now</button>
                                     </form>
                                     {{-- <button class="buy_now">Buy Now</button> --}}
                                 </div>
@@ -392,12 +395,13 @@
                                                     @foreach ($proreviews as $proreview)
                                                         <div class="d-flex align-items-start">
                                                             <div class="review-user">
-                                                            @if ($proreview->review_image)
-                                                                <img src="{{ asset('uploads/reviews/') . '/' . $proreview->review_image }}"
-                                                                    width="65" height="65" class="rounded-circle"
-                                                                    alt="Product Review Image" />
-                                                            @else
-                                                            @endif
+                                                                @if ($proreview->review_image)
+                                                                    <img src="{{ asset('uploads/reviews/') . '/' . $proreview->review_image }}"
+                                                                        width="65" height="65"
+                                                                        class="rounded-circle"
+                                                                        alt="Product Review Image" />
+                                                                @else
+                                                                @endif
                                                             </div>
                                                             <div class="review-content ms-3">
                                                                 <div class="rates cursor-pointer fs-6">
@@ -428,443 +432,445 @@
                                                     @csrf
                                                     <div class="form-body p-3">
                                                         <h4 class="mb-4">Write a Review</h4>
-                                                    @auth
-                                                        <div class="mb-2" style="display:none;">
-                                                            <label class="form-label">Your Your Name*</label>
-                                                            <input type="text" name="name" value="{{Auth::user()->first_name}} {{Auth::user()->last_name}}"
-                                                                placeholder="Enter your name" required type="hidden"
-                                                                class="form-control rounded-0">
+                                                        @auth
+                                                            <div class="mb-2" style="display:none;">
+                                                                <label class="form-label">Your Your Name*</label>
+                                                                <input type="text" name="name"
+                                                                    value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}"
+                                                                    placeholder="Enter your name" required type="hidden"
+                                                                    class="form-control rounded-0">
+                                                            </div>
+                                                            <div class="mb-2" style="display:none;">
+                                                                <label class="form-label">Your Your E-mail Id*</label>
+                                                                <input type="email" name="email"
+                                                                    value="{{ Auth::user()->email }}"
+                                                                    placeholder="Enter your email id" required type="hidden"
+                                                                    class="form-control rounded-0">
+                                                            </div>
+                                                        @else
+                                                            <div class="mb-2">
+                                                                <label class="form-label">Your Your Name*</label>
+                                                                <input type="text" name="name"
+                                                                    placeholder="Enter your name" required
+                                                                    class="form-control rounded-0">
+                                                            </div>
+                                                            <div class="mb-2">
+                                                                <label class="form-label">Your Your E-mail Id*</label>
+                                                                <input type="email" name="email"
+                                                                    placeholder="Enter your email id" required
+                                                                    class="form-control rounded-0">
+                                                            </div>
+                                                            @endif
+                                                            <input type="hidden" name="productid"
+                                                                value="{{ $productdetails->product_id }}" required />
+                                                            <div class="mb-2">
+                                                                <label class="form-label">Rating*</label>
+                                                                <select class="form-select rounded-0" name="rating" required>
+                                                                    <option selected disabled>Choose Rating</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="mb-2">
+                                                                <label class="form-label">Enter Your Message*</label>
+                                                                <textarea class="form-control rounded-0" name="message" required placeholder="Enter your message" rows="3"></textarea>
+                                                            </div>
+                                                            <div class="mb-2">
+                                                                <label class="form-label">Choose a photo*</label>
+                                                                <input type="file" name="reviewimage" id="reviewimage"
+                                                                    class="form-control" />
+                                                            </div>
+                                                            <div class="d-grid">
+                                                                <button type="submit" class="btn btn-ecomm">Submit a
+                                                                    Review</button>
+                                                            </div>
                                                         </div>
-                                                        <div class="mb-2" style="display:none;">
-                                                            <label class="form-label">Your Your E-mail Id*</label>
-                                                            <input type="email" name="email" value="{{Auth::user()->email}}"
-                                                                placeholder="Enter your email id" required type="hidden"
-                                                                class="form-control rounded-0">
-                                                    </div>
-                                                    @else
-                                                    <div class="mb-2">
-                                                            <label class="form-label">Your Your Name*</label>
-                                                            <input type="text" name="name"
-                                                                placeholder="Enter your name" required
-                                                                class="form-control rounded-0">
-                                                        </div>
-                                                        <div class="mb-2">
-                                                            <label class="form-label">Your Your E-mail Id*</label>
-                                                            <input type="email" name="email"
-                                                                placeholder="Enter your email id" required
-                                                                class="form-control rounded-0">
-                                                    </div>
-                                                    @endif
-                                                        <input type="hidden" name="productid"
-                                                            value="{{ $productdetails->product_id }}" required />
-                                                        <div class="mb-2">
-                                                            <label class="form-label">Rating*</label>
-                                                            <select class="form-select rounded-0" name="rating" required>
-                                                                <option selected disabled>Choose Rating</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                                <option value="5">5</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="mb-2">
-                                                            <label class="form-label">Enter Your Message*</label>
-                                                            <textarea class="form-control rounded-0" name="message" required placeholder="Enter your message" rows="3"></textarea>
-                                                        </div>
-                                                        <div class="mb-2">
-                                                            <label class="form-label">Choose a photo*</label>
-                                                            <input type="file" name="reviewimage" id="reviewimage"
-                                                                class="form-control" />
-                                                        </div>
-                                                        <div class="d-grid">
-                                                            <button type="submit" class="btn btn-ecomm">Submit a
-                                                                Review</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--end row-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!--end shop area-->
-                @if (!$related_product->isEmpty())
-                    <!--start related products-->
-                    <section class="py-4">
-                        <div class="container">
-                            <div class="service-pros m-0 p-0">
-                                <div class="head-cnt work-center text-center mb-0">
-                                    <div class="bounceIn animated">
-                                        <h4>Related products</h4>
-                                        <hr class="underlinskd">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-grid pt-2">
-                                <div class="related-products owl-carousel owl-theme trending0 trending001">
-                                    @foreach ($related_product as $relatedproduct)
-                                        <div class="item">
-                                            <div class="product-box">
-                                                @if ($relatedproduct->products->mrp)
-                                                    <div class="beachs">
-                                                        {{ ceil((($relatedproduct->products->mrp - $relatedproduct->products->price) / $relatedproduct->products->mrp) * 100) }}%
-                                                        Off</div> <img
-                                                        src="{{ asset('uploads/products/') . '/' . $relatedproduct->products->thumbnail }}"
-                                                        alt="{{ $relatedproduct->products->product_name ?? 'None' }}">
-                                                @endif
-                                                <div class="discrptions">
-                                                    <h5>{{ Str::limit($relatedproduct->products->product_name, 40) }}</h5>
-                                                    <h6>&#8377;{{ number_format((float) $relatedproduct->products->price, 2, '.', '') }}
-                                                    </h6>
-                                                </div>
-                                                <div class="discrptions_button">
-                                                    <h5><a
-                                                            href="{{ url('products-details') . '/' . $relatedproduct->products->product_slug }}">View
-                                                            Detail</a></h5>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                        <!--end row-->
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <!--end related products-->
-                @endif
-                @if (!$alsolikes->isEmpty())
-                    <!--start You May Also Like-->
-                    <section class="py-4">
-                        <div class="container">
-                            <div class="service-pros m-0 p-0">
-                                <div class="head-cnt work-center text-center mb-0">
-                                    <div class="bounceIn animated">
-                                        <h4>You May Also Like</h4>
-                                        <hr class="underlinskd">
+                    <!--end shop area-->
+                    @if (!$related_product->isEmpty())
+                        <!--start related products-->
+                        <section class="py-4">
+                            <div class="container">
+                                <div class="service-pros m-0 p-0">
+                                    <div class="head-cnt work-center text-center mb-0">
+                                        <div class="bounceIn animated">
+                                            <h4>Related products</h4>
+                                            <hr class="underlinskd">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="product-grid pt-2">
-                                <div class="alsolike-products owl-carousel owl-theme trending0 trending001">
-                                    @foreach ($alsolikes as $alsolike)
-                                        <div class="item">
-                                            <div class="product-box">
-                                                @if ($alsolike->mrp)
-                                                <a href="{{ url('products-details') . '/' . $alsolike->product_slug }}">
-                                                    <div class="beachs">
-                                                        {{ ceil((($alsolike->mrp - $alsolike->price) / $alsolike->mrp) * 100) }}%
-                                                        Off
-                                                    </div>
-                                                    <img
-                                                    src="{{ asset('uploads/products/') . '/' . $alsolike->thumbnail }}"
-                                                    alt="{{ $alsolike->product_name ?? 'Veerco' }}">
-                                                </a>
-                                                @endif
-                                                <a href="{{ url('products-details') . '/' . $alsolike->product_slug }}">
+                                <div class="product-grid pt-2">
+                                    <div class="related-products owl-carousel owl-theme trending0 trending001">
+                                        @foreach ($related_product as $relatedproduct)
+                                            <div class="item">
+                                                <div class="product-box">
+                                                    @if ($relatedproduct->products->mrp)
+                                                        <div class="beachs">
+                                                            {{ ceil((($relatedproduct->products->mrp - $relatedproduct->products->price) / $relatedproduct->products->mrp) * 100) }}%
+                                                            Off</div> <img
+                                                            src="{{ asset('uploads/products/') . '/' . $relatedproduct->products->thumbnail }}"
+                                                            alt="{{ $relatedproduct->products->product_name ?? 'None' }}">
+                                                    @endif
                                                     <div class="discrptions">
-                                                        <h5>{{ Str::limit($alsolike->product_name, 40) }}</h5>
-                                                        <h6>&#8377;{{ number_format((float) $alsolike->price, 2, '.', '') }}
+                                                        <h5>{{ Str::limit($relatedproduct->products->product_name, 40) }}</h5>
+                                                        <h6>&#8377;{{ number_format((float) $relatedproduct->products->price, 2, '.', '') }}
                                                         </h6>
                                                     </div>
-                                                </a>
-                                                <div class="discrptions_button">
-                                                    <h5><a
-                                                            href="{{ url('products-details') . '/' . $alsolike->product_slug }}">View
-                                                            Detail</a></h5>
+                                                    <div class="discrptions_button">
+                                                        <h5><a
+                                                                href="{{ url('products-details') . '/' . $relatedproduct->products->product_slug }}">View
+                                                                Detail</a></h5>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <!--end You May Also Like-->
-                @endif
+                        </section>
+                        <!--end related products-->
+                    @endif
+                    @if (!$alsolikes->isEmpty())
+                        <!--start You May Also Like-->
+                        <section class="py-4">
+                            <div class="container">
+                                <div class="service-pros m-0 p-0">
+                                    <div class="head-cnt work-center text-center mb-0">
+                                        <div class="bounceIn animated">
+                                            <h4>You May Also Like</h4>
+                                            <hr class="underlinskd">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-grid pt-2">
+                                    <div class="alsolike-products owl-carousel owl-theme trending0 trending001">
+                                        @foreach ($alsolikes as $alsolike)
+                                            <div class="item">
+                                                <div class="product-box">
+                                                    @if ($alsolike->mrp)
+                                                        <a
+                                                            href="{{ url('products-details') . '/' . $alsolike->product_slug }}">
+                                                            <div class="beachs">
+                                                                {{ ceil((($alsolike->mrp - $alsolike->price) / $alsolike->mrp) * 100) }}%
+                                                                Off
+                                                            </div>
+                                                            <img src="{{ asset('uploads/products/') . '/' . $alsolike->thumbnail }}"
+                                                                alt="{{ $alsolike->product_name ?? 'Veerco' }}">
+                                                        </a>
+                                                    @endif
+                                                    <a href="{{ url('products-details') . '/' . $alsolike->product_slug }}">
+                                                        <div class="discrptions">
+                                                            <h5>{{ Str::limit($alsolike->product_name, 40) }}</h5>
+                                                            <h6>&#8377;{{ number_format((float) $alsolike->price, 2, '.', '') }}
+                                                            </h6>
+                                                        </div>
+                                                    </a>
+                                                    <div class="discrptions_button">
+                                                        <h5><a
+                                                                href="{{ url('products-details') . '/' . $alsolike->product_slug }}">View
+                                                                Detail</a></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--end You May Also Like-->
+                    @endif
+                </div>
             </div>
-        </div>
-        <!--end page wrapper -->
+            <!--end page wrapper -->
 
-        {{-- @endforeach --}}
+            {{-- @endforeach --}}
 
-        <!--Start Back To Top Button-->
-        <a href="javaScript:;" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
-        <!--End Back To Top Button-->
+            <!--Start Back To Top Button-->
+            <a href="javaScript:;" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
+            <!--End Back To Top Button-->
 
-        <script>
-            var input = document.querySelector("#qty");
-            var btnminus = document.querySelector(".qtyminus");
-            var btnplus = document.querySelector(".qtyplus");
+            <script>
+                var input = document.querySelector("#qty");
+                var btnminus = document.querySelector(".qtyminus");
+                var btnplus = document.querySelector(".qtyplus");
 
-            if (
-                input !== undefined &&
-                btnminus !== undefined &&
-                btnplus !== undefined &&
-                input !== null &&
-                btnminus !== null &&
-                btnplus !== null
-            ) {
-                var min = Number(input.getAttribute("min"));
-                var max = Number(input.getAttribute("max"));
-                var step = Number(input.getAttribute("step"));
+                if (
+                    input !== undefined &&
+                    btnminus !== undefined &&
+                    btnplus !== undefined &&
+                    input !== null &&
+                    btnminus !== null &&
+                    btnplus !== null
+                ) {
+                    var min = Number(input.getAttribute("min"));
+                    var max = Number(input.getAttribute("max"));
+                    var step = Number(input.getAttribute("step"));
 
-                function qtyminus(e) {
-                    var current = Number(input.value);
-                    var newval = current - step;
-                    if (newval < min) {
-                        newval = min;
-                    } else if (newval > max) {
-                        newval = max;
-                    }
-                    input.value = Number(newval);
-                    e.preventDefault();
-                }
-
-                function qtyplus(e) {
-                    var current = Number(input.value);
-                    var newval = current + step;
-                    if (newval > max) newval = max;
-                    input.value = Number(newval);
-                    e.preventDefault();
-                }
-
-                btnminus.addEventListener("click", qtyminus);
-                btnplus.addEventListener("click", qtyplus);
-            } // End if test
-        </script>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.min.js"></script>
-    {{-- <script src="https://www.jqueryscript.net/demo/Feature-rich-Product-Gallery-With-Image-Zoom-xZoom/js/setup.js"></script> --}}
-    <script>
-        (function($) {
-            $(document).ready(function() {
-                $('.xzoom, .xzoom-gallery').xzoom({
-                    zoomWidth: 400,
-                    title: true,
-                    tint: '#333',
-                    Xoffset: 15
-                });
-                $('.xzoom2, .xzoom-gallery2').xzoom({
-                    position: '#xzoom2-id',
-                    tint: '#ffa200'
-                });
-                $('.xzoom3, .xzoom-gallery3').xzoom({
-                    position: 'lens',
-                    lensShape: 'circle',
-                    bg: true,
-                    sourceClass: 'xzoom-hidden'
-                });
-                $('.xzoom4, .xzoom-gallery4').xzoom({
-                    tint: '#006699',
-                    position: 'lens',
-                    lensShape: 'circle',
-                    Xoffset: 15
-                });
-                $('.xzoom5, .xzoom-gallery5').xzoom({
-                    tint: '#006699',
-                    Xoffset: 15
-                });
-
-                //Integration with hammer.js
-                var isTouchSupported = 'ontouchstart' in window;
-
-                if (isTouchSupported) {
-                    //If touch device
-                    $('.xzoom, .xzoom2, .xzoom3, .xzoom4, .xzoom5').each(function() {
-                        var xzoom = $(this).data('xzoom');
-                        xzoom.eventunbind();
-                    });
-
-                    $('.xzoom, .xzoom2, .xzoom3').each(function() {
-                        var xzoom = $(this).data('xzoom');
-                        $(this).hammer().on("tap", function(event) {
-                            event.pageX = event.gesture.center.pageX;
-                            event.pageY = event.gesture.center.pageY;
-                            var s = 1,
-                                ls;
-
-                            xzoom.eventmove = function(element) {
-                                element.hammer().on('drag', function(event) {
-                                    event.pageX = event.gesture.center.pageX;
-                                    event.pageY = event.gesture.center.pageY;
-                                    xzoom.movezoom(event);
-                                    event.gesture.preventDefault();
-                                });
-                            }
-
-                            xzoom.eventleave = function(element) {
-                                element.hammer().on('tap', function(event) {
-                                    xzoom.closezoom();
-                                });
-                            }
-                            xzoom.openzoom(event);
-                        });
-                    });
-
-                    $('.xzoom4').each(function() {
-                        var xzoom = $(this).data('xzoom');
-                        $(this).hammer().on("tap", function(event) {
-                            event.pageX = event.gesture.center.pageX;
-                            event.pageY = event.gesture.center.pageY;
-                            var s = 1,
-                                ls;
-
-                            xzoom.eventmove = function(element) {
-                                element.hammer().on('drag', function(event) {
-                                    event.pageX = event.gesture.center.pageX;
-                                    event.pageY = event.gesture.center.pageY;
-                                    xzoom.movezoom(event);
-                                    event.gesture.preventDefault();
-                                });
-                            }
-
-                            var counter = 0;
-                            xzoom.eventclick = function(element) {
-                                element.hammer().on('tap', function() {
-                                    counter++;
-                                    if (counter == 1) setTimeout(openfancy, 300);
-                                    event.gesture.preventDefault();
-                                });
-                            }
-
-                            function openfancy() {
-                                if (counter == 2) {
-                                    xzoom.closezoom();
-                                    $.fancybox.open(xzoom.gallery().cgallery);
-                                } else {
-                                    xzoom.closezoom();
-                                }
-                                counter = 0;
-                            }
-                            xzoom.openzoom(event);
-                        });
-                    });
-
-                    $('.xzoom5').each(function() {
-                        var xzoom = $(this).data('xzoom');
-                        $(this).hammer().on("tap", function(event) {
-                            event.pageX = event.gesture.center.pageX;
-                            event.pageY = event.gesture.center.pageY;
-                            var s = 1,
-                                ls;
-
-                            xzoom.eventmove = function(element) {
-                                element.hammer().on('drag', function(event) {
-                                    event.pageX = event.gesture.center.pageX;
-                                    event.pageY = event.gesture.center.pageY;
-                                    xzoom.movezoom(event);
-                                    event.gesture.preventDefault();
-                                });
-                            }
-
-                            var counter = 0;
-                            xzoom.eventclick = function(element) {
-                                element.hammer().on('tap', function() {
-                                    counter++;
-                                    if (counter == 1) setTimeout(openmagnific, 300);
-                                    event.gesture.preventDefault();
-                                });
-                            }
-
-                            function openmagnific() {
-                                if (counter == 2) {
-                                    xzoom.closezoom();
-                                    var gallery = xzoom.gallery().cgallery;
-                                    var i, images = new Array();
-                                    for (i in gallery) {
-                                        images[i] = {
-                                            src: gallery[i]
-                                        };
-                                    }
-                                    $.magnificPopup.open({
-                                        items: images,
-                                        type: 'image',
-                                        gallery: {
-                                            enabled: true
-                                        }
-                                    });
-                                } else {
-                                    xzoom.closezoom();
-                                }
-                                counter = 0;
-                            }
-                            xzoom.openzoom(event);
-                        });
-                    });
-
-                } else {
-                    //If not touch device
-
-                    //Integration with fancybox plugin
-                    $('#xzoom-fancy').bind('click', function(event) {
-                        var xzoom = $(this).data('xzoom');
-                        xzoom.closezoom();
-                        $.fancybox.open(xzoom.gallery().cgallery, {
-                            padding: 0,
-                            helpers: {
-                                overlay: {
-                                    locked: false
-                                }
-                            }
-                        });
-                        event.preventDefault();
-                    });
-
-                    //Integration with magnific popup plugin
-                    $('#xzoom-magnific').bind('click', function(event) {
-                        var xzoom = $(this).data('xzoom');
-                        xzoom.closezoom();
-                        var gallery = xzoom.gallery().cgallery;
-                        var i, images = new Array();
-                        for (i in gallery) {
-                            images[i] = {
-                                src: gallery[i]
-                            };
+                    function qtyminus(e) {
+                        var current = Number(input.value);
+                        var newval = current - step;
+                        if (newval < min) {
+                            newval = min;
+                        } else if (newval > max) {
+                            newval = max;
                         }
-                        $.magnificPopup.open({
-                            items: images,
-                            type: 'image',
-                            gallery: {
-                                enabled: true
-                            }
-                        });
-                        event.preventDefault();
-                    });
-                }
-            });
-        })(jQuery);
-    </script>
-@endsection
+                        input.value = Number(newval);
+                        e.preventDefault();
+                    }
 
-@section('notification')
-    @if (Session::has('success'))
+                    function qtyplus(e) {
+                        var current = Number(input.value);
+                        var newval = current + step;
+                        if (newval > max) newval = max;
+                        input.value = Number(newval);
+                        e.preventDefault();
+                    }
+
+                    btnminus.addEventListener("click", qtyminus);
+                    btnplus.addEventListener("click", qtyplus);
+                } // End if test
+            </script>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.min.js"></script>
+        {{-- <script src="https://www.jqueryscript.net/demo/Feature-rich-Product-Gallery-With-Image-Zoom-xZoom/js/setup.js"></script> --}}
         <script>
-            Lobibox.notify('success', {
-                size: 'mini',
-                showClass: 'fadeInDown',
-                hideClass: 'fadeUpDown',
-                pauseDelayOnHover: true,
-                continueDelayOnInactiveTab: false,
-                position: 'top right',
-                msg: '{{ Session::get('success') }}'
-            });
+            (function($) {
+                $(document).ready(function() {
+                    $('.xzoom, .xzoom-gallery').xzoom({
+                        zoomWidth: 400,
+                        title: true,
+                        tint: '#333',
+                        Xoffset: 15
+                    });
+                    $('.xzoom2, .xzoom-gallery2').xzoom({
+                        position: '#xzoom2-id',
+                        tint: '#ffa200'
+                    });
+                    $('.xzoom3, .xzoom-gallery3').xzoom({
+                        position: 'lens',
+                        lensShape: 'circle',
+                        bg: true,
+                        sourceClass: 'xzoom-hidden'
+                    });
+                    $('.xzoom4, .xzoom-gallery4').xzoom({
+                        tint: '#006699',
+                        position: 'lens',
+                        lensShape: 'circle',
+                        Xoffset: 15
+                    });
+                    $('.xzoom5, .xzoom-gallery5').xzoom({
+                        tint: '#006699',
+                        Xoffset: 15
+                    });
+
+                    //Integration with hammer.js
+                    var isTouchSupported = 'ontouchstart' in window;
+
+                    if (isTouchSupported) {
+                        //If touch device
+                        $('.xzoom, .xzoom2, .xzoom3, .xzoom4, .xzoom5').each(function() {
+                            var xzoom = $(this).data('xzoom');
+                            xzoom.eventunbind();
+                        });
+
+                        $('.xzoom, .xzoom2, .xzoom3').each(function() {
+                            var xzoom = $(this).data('xzoom');
+                            $(this).hammer().on("tap", function(event) {
+                                event.pageX = event.gesture.center.pageX;
+                                event.pageY = event.gesture.center.pageY;
+                                var s = 1,
+                                    ls;
+
+                                xzoom.eventmove = function(element) {
+                                    element.hammer().on('drag', function(event) {
+                                        event.pageX = event.gesture.center.pageX;
+                                        event.pageY = event.gesture.center.pageY;
+                                        xzoom.movezoom(event);
+                                        event.gesture.preventDefault();
+                                    });
+                                }
+
+                                xzoom.eventleave = function(element) {
+                                    element.hammer().on('tap', function(event) {
+                                        xzoom.closezoom();
+                                    });
+                                }
+                                xzoom.openzoom(event);
+                            });
+                        });
+
+                        $('.xzoom4').each(function() {
+                            var xzoom = $(this).data('xzoom');
+                            $(this).hammer().on("tap", function(event) {
+                                event.pageX = event.gesture.center.pageX;
+                                event.pageY = event.gesture.center.pageY;
+                                var s = 1,
+                                    ls;
+
+                                xzoom.eventmove = function(element) {
+                                    element.hammer().on('drag', function(event) {
+                                        event.pageX = event.gesture.center.pageX;
+                                        event.pageY = event.gesture.center.pageY;
+                                        xzoom.movezoom(event);
+                                        event.gesture.preventDefault();
+                                    });
+                                }
+
+                                var counter = 0;
+                                xzoom.eventclick = function(element) {
+                                    element.hammer().on('tap', function() {
+                                        counter++;
+                                        if (counter == 1) setTimeout(openfancy, 300);
+                                        event.gesture.preventDefault();
+                                    });
+                                }
+
+                                function openfancy() {
+                                    if (counter == 2) {
+                                        xzoom.closezoom();
+                                        $.fancybox.open(xzoom.gallery().cgallery);
+                                    } else {
+                                        xzoom.closezoom();
+                                    }
+                                    counter = 0;
+                                }
+                                xzoom.openzoom(event);
+                            });
+                        });
+
+                        $('.xzoom5').each(function() {
+                            var xzoom = $(this).data('xzoom');
+                            $(this).hammer().on("tap", function(event) {
+                                event.pageX = event.gesture.center.pageX;
+                                event.pageY = event.gesture.center.pageY;
+                                var s = 1,
+                                    ls;
+
+                                xzoom.eventmove = function(element) {
+                                    element.hammer().on('drag', function(event) {
+                                        event.pageX = event.gesture.center.pageX;
+                                        event.pageY = event.gesture.center.pageY;
+                                        xzoom.movezoom(event);
+                                        event.gesture.preventDefault();
+                                    });
+                                }
+
+                                var counter = 0;
+                                xzoom.eventclick = function(element) {
+                                    element.hammer().on('tap', function() {
+                                        counter++;
+                                        if (counter == 1) setTimeout(openmagnific, 300);
+                                        event.gesture.preventDefault();
+                                    });
+                                }
+
+                                function openmagnific() {
+                                    if (counter == 2) {
+                                        xzoom.closezoom();
+                                        var gallery = xzoom.gallery().cgallery;
+                                        var i, images = new Array();
+                                        for (i in gallery) {
+                                            images[i] = {
+                                                src: gallery[i]
+                                            };
+                                        }
+                                        $.magnificPopup.open({
+                                            items: images,
+                                            type: 'image',
+                                            gallery: {
+                                                enabled: true
+                                            }
+                                        });
+                                    } else {
+                                        xzoom.closezoom();
+                                    }
+                                    counter = 0;
+                                }
+                                xzoom.openzoom(event);
+                            });
+                        });
+
+                    } else {
+                        //If not touch device
+
+                        //Integration with fancybox plugin
+                        $('#xzoom-fancy').bind('click', function(event) {
+                            var xzoom = $(this).data('xzoom');
+                            xzoom.closezoom();
+                            $.fancybox.open(xzoom.gallery().cgallery, {
+                                padding: 0,
+                                helpers: {
+                                    overlay: {
+                                        locked: false
+                                    }
+                                }
+                            });
+                            event.preventDefault();
+                        });
+
+                        //Integration with magnific popup plugin
+                        $('#xzoom-magnific').bind('click', function(event) {
+                            var xzoom = $(this).data('xzoom');
+                            xzoom.closezoom();
+                            var gallery = xzoom.gallery().cgallery;
+                            var i, images = new Array();
+                            for (i in gallery) {
+                                images[i] = {
+                                    src: gallery[i]
+                                };
+                            }
+                            $.magnificPopup.open({
+                                items: images,
+                                type: 'image',
+                                gallery: {
+                                    enabled: true
+                                }
+                            });
+                            event.preventDefault();
+                        });
+                    }
+                });
+            })(jQuery);
         </script>
-    @endif
-    @if (Session::has('error'))
-        <script>
-            Lobibox.notify('error', {
-                size: 'mini',
-                showClass: 'fadeInDown',
-                hideClass: 'fadeUpDown',
-                pauseDelayOnHover: true,
-                continueDelayOnInactiveTab: false,
-                position: 'top right',
-                msg: '{{ Session::get('error') }}'
-            });
-        </script>
-    @endif
-@endsection
+    @endsection
+
+    @section('notification')
+        @if (Session::has('success'))
+            <script>
+                Lobibox.notify('success', {
+                    size: 'mini',
+                    showClass: 'fadeInDown',
+                    hideClass: 'fadeUpDown',
+                    pauseDelayOnHover: true,
+                    continueDelayOnInactiveTab: false,
+                    position: 'top right',
+                    msg: '{{ Session::get('success') }}'
+                });
+            </script>
+        @endif
+        @if (Session::has('error'))
+            <script>
+                Lobibox.notify('error', {
+                    size: 'mini',
+                    showClass: 'fadeInDown',
+                    hideClass: 'fadeUpDown',
+                    pauseDelayOnHover: true,
+                    continueDelayOnInactiveTab: false,
+                    position: 'top right',
+                    msg: '{{ Session::get('error') }}'
+                });
+            </script>
+        @endif
+    @endsection

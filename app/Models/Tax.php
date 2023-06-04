@@ -15,7 +15,7 @@ class Tax extends Model
         'tax_percentage',
     ];
 
-    // public function products(){
-    //     return $this->belongsTo(Product::class, 'tax_id', 'id');
-    // }
+    public function products(){
+        return $this->belongsTo(Product::class, 'tax_id', 'id');
+    }
 }

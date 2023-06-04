@@ -10,19 +10,19 @@ class Product extends Model
 {
     use HasFactory;
     protected $table = 'products';
-    protected $fillable = [ 
+    protected $fillable = [
         'product_id',
         'product_name',
         'product_slug',
-        'category_id', 
-        'mrp', 
-        'price', 
-        'sku', 
-        'model_number', 
-        'hsn', 
-        'is_top_product', 
-        'todays_deal', 
-        'is_featured', 
+        'category_id',
+        'mrp',
+        'price',
+        'sku',
+        'model_number',
+        'hsn',
+        'is_top_product',
+        'todays_deal',
+        'is_featured',
         'short_description',
         'description',
         'overview',
@@ -62,27 +62,27 @@ class Product extends Model
                     return $mathces[1] + 1;
                 }, $max);
             }
-            return "{$slug}-2";
+            return "{$slug}";
         }
         return $slug;
-    }  
-    
+    }
+
     public function product_images(){
-        return $this->hasMany(Product_image::class, 'product_img_id', 'product_id');    
+        return $this->hasMany(Product_image::class, 'product_img_id', 'product_id');
     }
     public function categories(){
-        return $this->hasMany(Category::class, 'category_slug', 'category_id');    
+        return $this->hasMany(Category::class, 'category_slug', 'category_id');
     }
     public function related_products(){
-        return $this->hasMany(Related_product::class, 'product_id', 'product_related');    
+        return $this->hasMany(Related_product::class, 'product_id', 'product_related');
     }
     public function taxes(){
-        return $this->hasOne(Tax::class, 'id', 'tax_id');    
+        return $this->hasOne(Tax::class, 'id', 'tax_id');
     }
     public function bought_together_products(){
-        return $this->hasMany(BoughtTogetherProduct::class, 'product_id', 'bought_selling');    
+        return $this->hasMany(BoughtTogetherProduct::class, 'product_id', 'bought_selling');
     }
     // public function orderItem(){
-    //     return $this->hasMany(Product_image::class, 'product_img_id', 'product_id');    
+    //     return $this->hasMany(Product_image::class, 'product_img_id', 'product_id');
     // }
 }
