@@ -14,6 +14,7 @@ class OrderController extends Controller
         $neworders = Order::where('status', 0)->paginate(20);
         return view('admin/new-order', compact('neworders'));
     }
+
     public static function getItemCount($orderid){
         $totalitem = OrderItem::where('order_id', $orderid)->count();
         return $totalitem;

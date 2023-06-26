@@ -54,6 +54,7 @@ class CheckoutController extends Controller
     public function completeOrder(Request $request){
         if (Auth::check()) {
             $token =  Shiprocket::getToken();
+            dd($response);
             $useraddr = Address::where('userid', Auth::id())->where('address_status', 2)->first();
             if ($useraddr) {
                 try {
@@ -77,32 +78,29 @@ class CheckoutController extends Controller
                     $orderitems = [];
                     foreach ($cartItems as $cartItem) {
                         $orderitems[] = [
-                            "name" => $cartItem->product_name,
-                            "sku" => $cartItem->product_code,
-                            "units" => $cartItem->quantity,
-                            "selling_price" => $cartItem->price,
-                            "discount" => $cartItem->discount,
-                            "tax" => $cartItem->tax,
-                            "hsn" => $cartItem->hsn,
+                            "name" => $cartItem->products->product_name,
+                            "sku" => $cartItem->productid,
+                            "selling_price"=>$cartItem->products->price,
+                            "units" => $cartItem->quantity
                         ];
                     }
 
-                    $shiprocketOrder = [
+                    $orderDetails = [
                         "order_id" => $order->id,
                         "order_date" => date('Y-m-d'),
-                        "pickup_location" => $order->city,
+                        "pickup_location" => "Veerco_Primary",
                         "channel_id" => "",
                         "comment" => "",
-                        "billing_customer_name" => $order->fname . " " . $order->lname,
-                        "billing_last_name" => $order->lname,
-                        "billing_address" => $order->address1,
-                        "billing_address_2" => $order->address2,
-                        "billing_city" => $order->city,
-                        "billing_pincode" => $order->pincode,
-                        "billing_state" => $order->state,
-                        "billing_country" => $order->country,
-                        "billing_email" => $order->email,
-                        "billing_phone" => $order->mobile,
+                        "billing_customer_name" => $useraddr->fname . " " . $useraddr->lname,
+                        "billing_last_name" => $useraddr->lname,
+                        "billing_address" => $useraddr->locationName,
+                        "billing_address_2" => "",
+                        "billing_city" => $useraddr->city,
+                        "billing_pincode" => $useraddr->pincode,
+                        "billing_state" => $useraddr->state,
+                        "billing_country" => $useraddr->country,
+                        "billing_email" => $useraddr->email,
+                        "billing_phone" => $useraddr->mobile,
                         "shipping_is_billing" => true,
                         "shipping_customer_name" => "",
                         "shipping_last_name" => "",
@@ -114,9 +112,7 @@ class CheckoutController extends Controller
                         "shipping_state" => "",
                         "shipping_email" => "",
                         "shipping_phone" => "",
-                        "order_items" => [
-
-                        ],
+                        "order_items" => $orderitems,
                         "payment_method" => "Prepaid",
                         "shipping_charges" => 0,
                         "giftwrap_charges" => 0,
@@ -128,6 +124,16 @@ class CheckoutController extends Controller
                         "height" => 1,
                         "weight" => 1
                     ];
+
+                    $shiprocketOrder = Shiprocket::order($token)->create($orderDetails);
+                    $shiprocketOrder = json_decode($shiprocketOrder);
+                    // dd($shiprocketOrder);
+                    if ($shiprocketOrder->status_code == 1) {
+                        $order->id = $shiprocketOrder->order_id;
+                        $order->save();
+                    } else {
+                        return redirect()->back()->with(session()->flash('error', $shiprocketOrder->message));
+                    }
 
 
                     foreach ($cartItems as $key => $cartitem) {
