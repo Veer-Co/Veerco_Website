@@ -54,7 +54,6 @@ class CheckoutController extends Controller
     public function completeOrder(Request $request){
         if (Auth::check()) {
             $token =  Shiprocket::getToken();
-            dd($response);
             $useraddr = Address::where('userid', Auth::id())->where('address_status', 2)->first();
             if ($useraddr) {
                 try {
@@ -127,7 +126,6 @@ class CheckoutController extends Controller
 
                     $shiprocketOrder = Shiprocket::order($token)->create($orderDetails);
                     $shiprocketOrder = json_decode($shiprocketOrder);
-                    // dd($shiprocketOrder);
                     if ($shiprocketOrder->status_code == 1) {
                         $order->id = $shiprocketOrder->order_id;
                         $order->save();

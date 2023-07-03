@@ -7,7 +7,7 @@
 @endsection
 @section('content')
     <!--start content-->
-    <main class="page-content">              
+    <main class="page-content">
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="card">
@@ -29,42 +29,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($shippedorders as $key => $shipped)
+                                    @forelse ($allOrders['data'] as $key => $order)
+                                    @if ($order['status'] == 'SHIPPED')
                                     <tr>
-                                        <td>{{($shippedorders->currentpage()-1) * $shippedorders->perpage() + $key + 1}}</td>
-                                        <td>{{$shipped->fname.' '.$shipped->lname}}</td>
-                                        <td>&#8377;{{$shipped->total_amount}}/- for item {{OrderController::getItemCount($shipped->id)}}</td>
-                                        <td>{{$shipped->tracking_no}}</td>
-                                        @if ($shipped->shipping_date !== null)
-                                        <td>{{$shipped->shipping_date->format('d-M-Y')}}</td>
-                                        @else
-                                        <td>Not Available</td>
-                                        @endif
-                                        <td>{{$shipped->created_at->format('d-M-Y')}}</td>
+                                        <td>{{($allOrders['meta']['pagination']['current_page'] - 1) * $allOrders['meta']['pagination']['per_page'] + $key + 1}}</td>
+                                        <td>{{$order['customer_name']}}</td>
+                                        <td>&#8377;{{$order['total']}}/- for item {{OrderController::getItemCount($order['id'])}}</td>
+                                        <td>{{$order['created_at']}}</td>
                                         <td>
-                                            <form action="{{route('admin.delivered')}}" method="post" class="d-inline">
-                                                @csrf
-                                                <input type="hidden" name="orderid" value="{{$shipped->id}}">
-                                                <button class="btn btn-success"><i class="bi bi-truck"></i>&nbsp;Delivered</button>
-                                            </form>
-                                            <a href="{{url('admin/order-details').'/'.$shipped->id}}"><button class="btn btn-dark"><i class="bi bi-eye"></i>&nbsp;View Details</button></a>
-                                        </td>
-                                    </tr>                                        
-                                    @empty
-                                    <tr class="text-center text-danger">
-                                        <td colspan="5">Data not available</td>                                        
-                                    </tr>                                        
-                                    @endforelse
-                                    <tr>
-                                        <td colspan="7">
-                                            <nav aria-label="...">
-                                                <ul class="pagination justify-content-end mb-0">
-                                                    {{$shippedorders->links();}}
-                                                </ul>
-                                            </nav>
+                                            <a href="{{url('admin/order-details').'/'.$order['id']}}"><button class="btn btn-dark"><i class="bi bi-eye"></i>&nbsp;View Details</button></a>
                                         </td>
                                     </tr>
-                                    
+                                    @endif
+                                    @empty
+                                    <tr class="text-center text-danger">
+                                        <td colspan="5">Data not available</td>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -76,25 +57,25 @@
    <!--end page main-->
 
 @if (Session::has('success'))
-<script> 
+<script>
     Lobibox.notify('success', {
 		pauseDelayOnHover: true,
 		continueDelayOnInactiveTab: false,
 		position: 'top right',
 		icon: 'bx bx-check-circle',
 		msg: '{{ Session::get("success") }}'
-	});    
+	});
 </script>
 @endif
 @if (Session::has('error'))
-<script>   
+<script>
     Lobibox.notify('error', {
 		pauseDelayOnHover: true,
 		continueDelayOnInactiveTab: false,
 		position: 'top right',
 		icon: 'bx bx-x-circle',
 		msg: '{{ Session::get("error") }}'
-	});      
+	});
 </script>
 @endif
 @endsection

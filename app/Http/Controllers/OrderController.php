@@ -9,10 +9,16 @@ use Seshac\Shiprocket\Shiprocket;
 
 class OrderController extends Controller
 {
+    // this just returns all orders, previous dev named it new order
     public function newOrder()
     {
-        $neworders = Order::where('status', 0)->paginate(20);
-        return view('admin/new-order', compact('neworders'));
+        // $neworders = Order::where('status', 0)->paginate(20);
+        // dd($neworders);
+        // return orders from Shiprocket
+        $token =  Shiprocket::getToken();
+        $orderDetails = [];
+        $allOrders =  Shiprocket::order($token)->getOrders($orderDetails);
+        return view('admin/new-order', compact('allOrders'));
     }
 
     public static function getItemCount($orderid){
@@ -46,8 +52,12 @@ class OrderController extends Controller
 
     public function shippedOrder()
     {
-        $shippedorders = Order::where('status', 1)->paginate(20);
-        return view('admin/shipped-order', compact('shippedorders'));
+        // $shippedorders = Order::where('status', 1)->paginate(20);
+        $token =  Shiprocket::getToken();
+        $orderDetails = [];
+        $allOrders =  Shiprocket::order($token)->getOrders($orderDetails);
+
+        return view('admin/shipped-order', compact('allOrders'));
     }
 
     public function ordersDetail($order_id)
@@ -73,8 +83,12 @@ class OrderController extends Controller
 
     public function deliveredOrder()
     {
-        $deliveredorders = Order::where('status', 2)->paginate(20);
-        return view('admin/delivered-order', compact('deliveredorders'));
+        // $deliveredorders = Order::where('status', 2)->paginate(20);
+        $token =  Shiprocket::getToken();
+        $orderDetails = [];
+        $allOrders =  Shiprocket::order($token)->getOrders($orderDetails);
+        return view('admin/delivered-order', compact('allOrders'));
+
     }
 
     public function trackOrder(Request $request){
