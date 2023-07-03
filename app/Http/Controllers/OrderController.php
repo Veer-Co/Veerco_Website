@@ -27,7 +27,14 @@ class OrderController extends Controller
     }
 
     public function orderDetails($order_id){
-        $orders = OrderItem::where('order_id', $order_id)->get();
+        // $orders = OrderItem::where('order_id', $order_id)->get();
+        // $customerdetails = Order::where('id', $order_id)->first();
+        $token = Shiprocket::getToken();
+        $orderDetails = [
+            'search' => $order_id
+        ];
+        $orders = Shiprocket::order($token)->getOrders($orderDetails);
+        // dd($orders);
         $customerdetails = Order::where('id', $order_id)->first();
         return view('admin/order-details', compact('orders', 'customerdetails'));
     }
