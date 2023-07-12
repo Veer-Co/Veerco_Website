@@ -55,14 +55,14 @@ class CheckoutController extends Controller
     public function completeOrder(Request $request)
     {
         if (Auth::check()) {
-            $paymentPayload = [
-                'amount' => $request->amount,
-                'mobileNumber' => Auth::user()->mobile,
-                'transactionId' => $request->order_id,
-                'userId' => Auth::user()->id,
-            ];
+            // $paymentPayload = [
+            //     'amount' => $request->amount,
+            //     'mobileNumber' => Auth::user()->mobile,
+            //     'transactionId' => $request->order_id,
+            //     'userId' => Auth::user()->id,
+            // ];
 
-            PhonePecontroller::phonepe($paymentPayload);
+            // PhonePecontroller::phonepe($paymentPayload);
 
             $token =  Shiprocket::getToken();
             $useraddr = Address::where('userid', Auth::id())->where('address_status', 2)->first();
