@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Seshac\Shiprocket\Shiprocket;
+use App\Http\Controllers\PhonePecontroller;
 
 class CheckoutController extends Controller
 {
@@ -51,8 +52,18 @@ class CheckoutController extends Controller
         }
     }
 
-    public function completeOrder(Request $request){
+    public function completeOrder(Request $request)
+    {
         if (Auth::check()) {
+            $paymentPayload = [
+                'amount' => $request->amount,
+                'mobileNumber' => Auth::user()->mobile,
+                'transactionId' => $request->order_id,
+                'userId' => Auth::user()->id,
+            ];
+
+            PhonePecontroller::phonepe($paymentPayload);
+
             $token =  Shiprocket::getToken();
             $useraddr = Address::where('userid', Auth::id())->where('address_status', 2)->first();
             if ($useraddr) {
@@ -79,7 +90,7 @@ class CheckoutController extends Controller
                         $orderitems[] = [
                             "name" => $cartItem->products->product_name,
                             "sku" => $cartItem->productid,
-                            "selling_price"=>$cartItem->products->price,
+                            "selling_price" => $cartItem->products->price,
                             "units" => $cartItem->quantity
                         ];
                     }
@@ -155,6 +166,5 @@ class CheckoutController extends Controller
         } else {
             return response()->json(['status' => "Login to continue"]);
         }
-
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PhonePecontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,3 +78,6 @@ Route::get('/admin/dashboard', function () {
 
 require __DIR__.'/admin.php';
 Route::view('profile', 'profile');
+
+Route::get('phonepe', [PhonePecontroller::class, 'phonePe'])->name('phonePe');
+Route::post('phonepe-response', [PhonePecontroller::class, 'response'])->name('response');
