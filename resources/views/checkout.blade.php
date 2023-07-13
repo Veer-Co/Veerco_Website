@@ -241,13 +241,13 @@
                                                                     <h5 class="mb-3">Payment Mode:</h5>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio"
-                                                                            value="online" disabled name="payment_mode"
+                                                                            value="online" name="payment_mode"
                                                                             id="online">
                                                                         <label class="form-check-label" for="online">
                                                                             Online
                                                                         </label>
-                                                                        <span class="text-danger">(Online payment is not
-                                                                            available in this time.)</span>
+                                                                        <!-- <span class="text-danger">(Online payment is not
+                                                                            available in this time.)</span> -->
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio"

@@ -52,17 +52,64 @@ class CheckoutController extends Controller
         }
     }
 
-    public function completeOrder(Request $request)
-    {
+    public function completeOrderOnline(Request $request){
         if (Auth::check()) {
-            // $paymentPayload = [
-            //     'amount' => $request->amount,
-            //     'mobileNumber' => Auth::user()->mobile,
-            //     'transactionId' => $request->order_id,
-            //     'userId' => Auth::user()->id,
-            // ];
 
-            // PhonePecontroller::phonepe($paymentPayload);
+            
+
+            $token =  Shiprocket::getToken();
+            $useraddr = Address::where('userid', Auth::id())->where('address_status', 2)->first();
+            if ($useraddr) {
+                try {
+                    $order = Order::create([
+                        'userid' => Auth::user()->id,
+                        'fname' => $useraddr->fname,
+                        'lname' => $useraddr->lname,
+                        'email' => $useraddr->email,
+                        'mobile' => $useraddr->mobile,
+                        'address1' => $useraddr->locationName,
+                        'address2' => $useraddr->townName,
+                        'city' => $useraddr->city,
+                        'state' => $useraddr->state,
+                        'country' => $useraddr->country,
+                        'pincode' => $useraddr->pincode,
+                        'total_amount' => $request->amount,
+                        'payment_mode' => $request->payment_mode,
+                    ]);
+
+                    $cloneResp = $request;
+                    $cloneResp["mobileNumber"] = Auth::user()->mobile;
+                    $cloneResp["transactionId"] =  $order->id;
+                    $cloneResp["userId"] = Auth::user()->id;                    
+                    $cloneResp["amount"] = $order->total_amount * 100; 
+                    $cloneResp["shiprocketToken"] = $token;
+
+                    $phonePeController = new PhonePecontroller();
+                    $resp = $phonePeController->phonePe($cloneResp);
+                    return $resp; 
+                    
+                } catch (Exception $e) {
+                    // return  $e->getMessage();
+                    // $request->session()->put('error', $e->getMessage());
+                    return redirect()->back()->with(session()->flash('error', $e->getMessage()));
+                }
+            } else {
+                return redirect()->back()->with(session()->flash('error', 'Something went wrong. Please check if you have added an address'));
+            }
+        } else {
+            return response()->json(['status' => "Login to continue"]);
+        }
+    }
+
+    public function completeOrder(Request $request)
+    {   
+
+        if($request->payment_mode=="online"){
+            return $this->completeOrderOnline($request);
+        }
+        if (Auth::check()) {
+
+            
 
             $token =  Shiprocket::getToken();
             $useraddr = Address::where('userid', Auth::id())->where('address_status', 2)->first();
