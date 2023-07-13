@@ -29,18 +29,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($allOrders['data'] as $key => $order)
-                                    @if ($order['status'] == 'DELIVERED')
+                                    @forelse ($allOrders as $key => $order)
                                     <tr>
-                                        <td>{{($allOrders['meta']['pagination']['current_page'] - 1) * $allOrders['meta']['pagination']['per_page'] + $key + 1}}</td>
-                                        <td>{{$order['customer_name']}}</td>
-                                        <td>&#8377;{{$order['total']}}/- for item {{OrderController::getItemCount($order['id'])}}</td>
+                                        <td>{{$key + 1}}</td>
+                                        <td>{{$order['fname']}} {{$order['lname']}}</td>
+                                        <td>&#8377;{{$order['total_amount']}}/- for item {{OrderController::getItemCount($order['id'])}}</td>
+                                        <td>{{$order['tracking_no']}}</td>
+                                        
+                                        <td>{{$order['delivered_date']}}</td>
                                         <td>{{$order['created_at']}}</td>
                                         <td>
                                             <a href="{{url('admin/order-details').'/'.$order['id']}}"><button class="btn btn-dark"><i class="bi bi-eye"></i>&nbsp;View Details</button></a>
                                         </td>
                                     </tr>
-                                    @endif
                                     @empty
                                     <tr class="text-center text-danger">
                                         <td colspan="5">Data not available</td>
