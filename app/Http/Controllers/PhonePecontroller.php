@@ -15,10 +15,10 @@ class PhonePecontroller extends Controller
 {
     public function phonePe(Request $request)
     {
-        $payload = [
+        $payload = array (
             'merchantId' => getenv("PHONEPE_MERCHANTID"),
             'merchantTransactionId' => $request->transactionId,
-            'merchantUserId' => $request->userId,
+            'merchantUserId' => str($request->userId)->value(),
             'amount' => $request->amount,
             'redirectUrl' => route('response'),
             'redirectMode' => 'POST',
@@ -27,20 +27,20 @@ class PhonePecontroller extends Controller
             'paymentInstrument' => array(
                 'type' => 'PAY_PAGE'
             ),
-        ];
-
+        );
         $encoded = base64_encode(json_encode($payload));
         $saltKey = getenv("PHONEPE_SALT");
-        $saltIndex = "1"; // sample salt index
-
+        
+        $saltIndex = 1; // sample salt index
+        
         $string = $encoded . "/pg/v1/pay" . $saltKey;
         $hash = hash("sha256", $string);
 
         $finalXheader = $hash . "###" . $saltIndex;
 
         $response = Curl::to('https://api.phonepe.com/apis/hermes/pg/v1/pay')
-            ->withHeader('Content-Type: application/json')
-            ->withHeader('X-VERIFY: '.$finalXheader)
+            ->withHeader('Content-Type:application/json')
+            ->withHeader('X-VERIFY:'.$finalXheader)
             ->withData(json_encode(['request' => $encoded]))
             ->post();
 
@@ -51,7 +51,8 @@ class PhonePecontroller extends Controller
     public function response(Request $request)
     {
         $input = $request->all();
-        $saltKey = getenv("PHONEPE_SALT");
+        // $saltKey = getenv("PHONEPE_SALT");
+        $saltKey = '099eb0cd-02cf-4e2a-8aca-3e6c6aff0399';
         $saltIndex = 1;
         $finalXHeader = hash('sha256','/pg/v1/status/'.$input['merchantId'].'/'.$input['transactionId'].$saltKey).'###'.$saltIndex;
         
@@ -61,10 +62,15 @@ class PhonePecontroller extends Controller
                 ->withHeader('X-VERIFY:'.$finalXHeader)
                 ->withHeader('X-MERCHANT-ID:'.$input['transactionId'])
                 ->get();
-        $response = json_decode($response);        
+
+        $response = json_decode($response);   
+
         if($response->success){
             
             $order = Order::where('id', $request->transactionId)->first();
+            if($order==null){
+                return redirect("checkout")->with(session()->flash('error', 'Product not found'));
+            }
             $useraddr = Address::where('userid', $request->userId)->where('address_status', 2)->first();
             $cartItems = Cart::where('userid', Auth::id())->get();
 

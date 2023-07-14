@@ -80,4 +80,4 @@ require __DIR__.'/admin.php';
 Route::view('profile', 'profile');
 
 Route::get('phonepe', [PhonePecontroller::class, 'phonePe'])->name('phonePe');
-Route::post('phonepe-response', [PhonePecontroller::class, 'response'])->name('response');
+Route::any('phonepe-response', [PhonePecontroller::class, 'response'])->name('response');
