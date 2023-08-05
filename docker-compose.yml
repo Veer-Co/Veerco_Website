@@ -1,6 +1,36 @@
 version: '3'
 
 services:
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: php artisan serve --host=0.0.0.0 --port=8888
+    volumes:
+      - .:/var/www
+    ports:
+      - "8888:8888"
+    depends_on:
+      - db
+
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - APP_KEY=SomeRandomString
+      - DB_CONNECTION=mysql
+      - DB_HOST=0.0.0.0
+      - DB_PORT=3306
+      - DB_DATABASE=test
+      - DB_USERNAME=test
+      - DB_PASSWORD=test
+
+      - PHONEPE_SALT=d2565914-6542-4e47-961b-debdf4965045
+      - PHONEPE_MERCHANTID=VEERCOMPANYONLINE
+
+      - SHIPROCKET_EMAIL=sarveshupadhyay010@gmail.com
+      - SHIPROCKET_PASSWORD=7377017377@Sa
+
   # Database
   db:
     image: mysql:5.7
@@ -8,7 +38,7 @@ services:
       - .:/code
     restart: always
     ports:
-      - '3307:3306'
+      - '3306:3306'
     environment:
       MYSQL_ROOT_PASSWORD: test
       MYSQL_DATABASE: test

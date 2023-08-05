@@ -62,6 +62,7 @@ class CheckoutController extends Controller
             if ($useraddr) {
                 try {
                     $order = Order::create([
+                        'id' => "MT7850590068188104",
                         'userid' => Auth::user()->id,
                         'fname' => $useraddr->fname,
                         'lname' => $useraddr->lname,
@@ -76,7 +77,6 @@ class CheckoutController extends Controller
                         'total_amount' => $request->amount,
                         'payment_mode' => $request->payment_mode,
                     ]);
-
                     $cloneResp = $request;
                     $cloneResp["mobileNumber"] = Auth::user()->mobile;
                     $cloneResp["transactionId"] =  $order->id;
@@ -183,13 +183,13 @@ class CheckoutController extends Controller
                     ];
 
                     $shiprocketOrder = Shiprocket::order($token)->create($orderDetails);
-                    $shiprocketOrder = json_decode($shiprocketOrder);
-                    if ($shiprocketOrder->status_code == 1) {
-                        $order->id = $shiprocketOrder->order_id;
-                        $order->save();
-                    } else {
-                        return redirect()->back()->with(session()->flash('error', $shiprocketOrder->message));
-                    }
+                    // $shiprocketOrder = json_decode($shiprocketOrder);
+                    // if ($shiprocketOrder->status_code == 1) {
+                    //     $order->id = $shiprocketOrder->order_id;
+                    //     $order->save();
+                    // } else {
+                    //     return redirect()->back()->with(session()->flash('error', $shiprocketOrder->message));
+                    // }
 
 
                     foreach ($cartItems as $key => $cartitem) {
@@ -205,6 +205,7 @@ class CheckoutController extends Controller
                 } catch (Exception $e) {
                     // return  $e->getMessage();
                     // $request->session()->put('error', $e->getMessage());
+                    $order->delete();
                     return redirect()->back()->with(session()->flash('error', $e->getMessage()));
                 }
             } else {
