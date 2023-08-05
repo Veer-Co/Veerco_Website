@@ -76,6 +76,7 @@ class CheckoutController extends Controller
                         'pincode' => $useraddr->pincode,
                         'total_amount' => $request->amount,
                         'payment_mode' => $request->payment_mode,
+                        'status' => -1
                     ]);
                     $cloneResp = $request;
                     $cloneResp["mobileNumber"] = Auth::user()->mobile;
