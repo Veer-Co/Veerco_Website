@@ -28,22 +28,21 @@ class PhonePecontroller extends Controller
         //         'type' => 'PAY_PAGE'
         //     ],
         // ];
-        
         $payload = array (
             'merchantId' => getenv("PHONEPE_MERCHANTID"),
             'merchantTransactionId' => 'MT' . strval($request->transactionId),
             'merchantUserId' => str($request->userId)->value(),
             'amount' => $request->amount,
-            'redirectUrl' => route('response'),
+            'redirectUrl' => secure_url('response'),
             'redirectMode' => 'POST',
-            'callbackUrl' => route('response'),
+            'callbackUrl' => secure_url('response'),
             'mobileNumber' => $request->mobileNumber,
             'paymentInstrument' => array(
-                    'type' => 'PAY_PAGE'
-                ),
+                'type' => 'PAY_PAGE'
+            ),
         );
-
-                
+        
+        
         $encoded = base64_encode(json_encode($payload));
         $saltKey = getenv("PHONEPE_SALT");
         // $saltKey = "099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
@@ -57,10 +56,10 @@ class PhonePecontroller extends Controller
         $finalXheader = $hash . "###" . $saltIndex;
         
         $response = Curl::to('https://api.phonepe.com/apis/hermes/pg/v1/pay')
-            ->withHeader('Content-Type:application/json')
-            ->withHeader('X-VERIFY:'.$finalXheader)
-            ->withData(json_encode(['request' => $encoded]))
-            ->post();
+        ->withHeader('Content-Type:application/json')
+        ->withHeader('X-VERIFY:'.$finalXheader)
+        ->withData(json_encode(['request' => $encoded]))
+        ->post();
         
         // $response = Curl::to('https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/pay')
         // ->withHeader('Content-Type: application/json')
