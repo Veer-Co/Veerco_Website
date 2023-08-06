@@ -33,9 +33,9 @@ class PhonePecontroller extends Controller
             'merchantTransactionId' => 'MT' . strval($request->transactionId),
             'merchantUserId' => str($request->userId)->value(),
             'amount' => $request->amount,
-            'redirectUrl' => secure_url('response'),
+            'redirectUrl' => secure_url('phonepe-response'),
             'redirectMode' => 'POST',
-            'callbackUrl' => secure_url('response'),
+            'callbackUrl' => secure_url('phonepe-response'),
             'mobileNumber' => $request->mobileNumber,
             'paymentInstrument' => array(
                 'type' => 'PAY_PAGE'
@@ -96,6 +96,7 @@ class PhonePecontroller extends Controller
         $response = json_decode($response);
         $order_id = mb_substr($request->transactionId,2);   
         $order = Order::where('id', $order_id)->first();
+        dd($response);
         try {
 
             if($response->success){
